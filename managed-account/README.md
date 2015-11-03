@@ -4,9 +4,9 @@
 Managed Accounts are accounts created and managed within the scope of another account. For example, a customer of Logz.io which is a service provider by itself, may wish to create and maintain Managed Accounts for its service receivers. 
 
 ## Limitations
-Using the API requires a special permission from Logz.io, and an API token.
+Using the API requires a special license from Logz.io, and an API token.
 
-Number of Managed Accounts created from within another account is controlled and limited by Logz.io.
+The number of Managed Accounts created from within another account is controlled and limited by Logz.io.
 
 ## Create Managed Account
 ### Example:
