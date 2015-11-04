@@ -10,16 +10,17 @@ The number of Managed Accounts created from within another account is controlled
 
 ## Create Managed Account
 ### Example:
-$ curl -XPOST 'https://api.logz.io/v1/accounts/managed-account' 
-  --header "X-USER-TOKEN : your-api-access-token"
-  -d '{
+```
+$ curl -XPOST 'https://api.logz.io/v1/accounts/managed-account'  
+  --header "X-USER-TOKEN : your-api-access-token" 
+  -d '{ 
   	"email" : "john@doe.com",
     "fullName" : "John Doe",
     "company" : "My awesome company",
     "maxDailyGB" : 1,
     "retentionDays" : 7
   }'
-  
+```
 ### Request Header:
 - X-USER-TOKEN : contains the token which was provided by Logz.io in order to access the API.
 
@@ -60,8 +61,10 @@ $ curl -XPOST 'https://api.logz.io/v1/accounts/managed-account'
 
 ## List Managed Accounts
 ### Example:
+```
 $ curl -XGET ‘https://api.logz.io/v1/accounts/managed-account’
 	--header "X-USER-TOKEN : your-api-access-token"
+```
 
 ### Request Header:
 - X-USER-TOKEN : contains the token which was provided by Logz.io in order to access the API.
@@ -84,8 +87,10 @@ $ curl -XGET ‘https://api.logz.io/v1/accounts/managed-account’
 
 ## Delete Managed Account
 ### Example:
+```
 $ curl -XDELETE ‘https://api.logz.io/v1/accounts/managed-account/{id}’
 	--header "X-USER-TOKEN : your-api-access-token"
+```
 
 ### Request Path Parameter:
 - id : The id of the Managed Account to delete
