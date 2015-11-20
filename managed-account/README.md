@@ -25,7 +25,7 @@ $ curl -XPOST 'https://api.logz.io/v1/managed-account'
 - X-USER-TOKEN : contains the token which was provided by Logz.io in order to access the API.
 
 ### Request Body, in JSON Format:
-- email : the email of the user to associate with the new managed account. Note that the user role in the new account is admin.
+- email : the email of the user to associate with the new managed account. Note that the user role in the new account is admin. The new user should be an existing user of the master account.
 - fullName: the name of the user.
 - company: the company name of the new account.
 - maxDailyGB: float, the maximum daily quota, in GigaBytes.
