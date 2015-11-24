@@ -71,17 +71,19 @@ $ curl -XGET ‘https://api.logz.io/v1/managed-account’
 
 ### Request Body : No body is Required.
 
-### Response Body, in JSON Format, in Case of Successful Response (200 OK):
-- a json array of managed accounts, for example:
-> [ {
->    "accountId":777, 
->    "accountName":"Managed Account Name",
->    "loggingToken":"TOKEN-To-Ship-Logs",
->    "adminsUsernames":["john@doe.com","bob@doe.com"]
->    "maxDailyGB":0.5,
->    "retentionDays":7 
->    } , ....]
-> 
+### Response Body:
+In Case of Successful Response (200 OK) a json array of managed accounts, for example:
+
+```
+ [ {
+    "accountId":777, 
+    "accountName":"Managed Account Name",
+    "loggingToken":"TOKEN-To-Ship-Logs",
+    "adminsUsernames":["john@doe.com","bob@doe.com"]
+    "maxDailyGB":0.5,
+    "retentionDays":7 
+    } , ....]
+```
 
 
 
