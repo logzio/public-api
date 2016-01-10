@@ -14,9 +14,8 @@ The number of Managed Accounts created from within another account is controlled
 $ curl -XPOST 'https://api.logz.io/v1/managed-account'  
   --header "X-USER-TOKEN : your-api-access-token" 
   -d '{ 
-  	"email" : "john@doe.com",
-    "fullName" : "John Doe",
-    "company" : "My awesome company",
+    "email" : "john@doe.com",
+    "accountName" : "My awesome company",
     "maxDailyGB" : 1,
     "retentionDays" : 7
   }'
@@ -35,9 +34,6 @@ $ curl -XPOST 'https://api.logz.io/v1/managed-account'
 - accountId : the id of the new account which was created.
 - accountName : the name of the new account.
 - loggingToken : the token which should be used in order to ship logs to the new account.
-- adminsUsernames : a json list of strings, listing all the admin users of the account.
-- maxDailyGB: float, the maximum daily quota. in GigaBytes.
-- retentionDays: the number of days to keep the data within Logz.io.
 
 ### Errors
 
@@ -57,6 +53,10 @@ $ curl -XPOST 'https://api.logz.io/v1/managed-account'
 >     "message": "Managed Account retentionDays(110) is above the allowed-limit(14)"
 > }
 
+> {
+>     "code": 403,
+>     "message": "Email must belong to an existing user of the managing account"
+> }
 
 
 ## List Managed Accounts
@@ -79,7 +79,7 @@ In Case of Successful Response (200 OK) a json array of managed accounts, for ex
     "accountId":777, 
     "accountName":"Managed Account Name",
     "loggingToken":"TOKEN-To-Ship-Logs",
-    "adminsUsernames":["john@doe.com","bob@doe.com"]
+    "adminEmails":["john@doe.com","bob@doe.com"]
     "maxDailyGB":0.5,
     "retentionDays":7 
     } , ....]
