@@ -62,7 +62,7 @@ $ curl -XPOST 'https://api.logz.io/v1/managed-account'
 ## List Managed Accounts
 ### Example:
 ```
-$ curl -XGET ‘https://api.logz.io/v1/managed-account’
+$ curl -XGET 'https://api.logz.io/v1/managed-account'
 	--header "X-USER-TOKEN : your-api-access-token"
 ```
 
@@ -90,7 +90,7 @@ In Case of Successful Response (200 OK) a json array of managed accounts, for ex
 ## Delete Managed Account
 ### Example:
 ```
-$ curl -XDELETE ‘https://api.logz.io/v1/managed-account/{id}’
+$ curl -XDELETE 'https://api.logz.io/v1/managed-account/{id}'
 	--header "X-USER-TOKEN : your-api-access-token"
 ```
 
