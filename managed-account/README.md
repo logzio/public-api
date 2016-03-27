@@ -12,7 +12,8 @@ The number of Managed Accounts created from within another account is controlled
 ### Example:
 ```
 $ curl -XPOST 'https://api.logz.io/v1/managed-account'  
-  --header "X-USER-TOKEN : your-api-access-token" 
+  --header "X-USER-TOKEN : your-api-access-token"
+  --header "Content-Type: application/json"
   -d '{ 
     "email" : "john@doe.com",
     "accountName" : "My awesome company",
