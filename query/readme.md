@@ -8,7 +8,7 @@ Using the API requires a special license from Logz.io, and an API token.
 
 The number of queries executed is controlled and limited by Logz.io.
 
-The number of results are limited to 10,000 if you need this limitation increased contact support@logz.io .
+The number of results are limited to 10,000.
 
 ## Execute a Search Query
 
