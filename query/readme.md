@@ -26,7 +26,7 @@ $ curl -XPOST 'https://api.logz.io/v1/query'
   }'
 ```
 ### Request Header:
-- X-USER-TOKEN : contains the token which was provided by Logz.io in order to access the API.
+- X-USER-TOKEN : contains a token in order to access the API. Navigate to the cogwheel --> User Tokens page to generate this token.
 
 ### Request Body, in JSON Format:
 
