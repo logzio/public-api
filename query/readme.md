@@ -4,7 +4,7 @@
 The Query API allows to run search queries on the data in your Logz.io account.
 
 ## Limitations
-Using the API requires a special license from Logz.io, and an API token.
+Using the API requires a special license from Logz.io, and an API token which can be generated here - 'https://app.logz.io/#/dashboard/account/tokens' 
 
 The number of queries executed is controlled and limited by Logz.io.
 
