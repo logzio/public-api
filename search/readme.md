@@ -62,14 +62,6 @@ Create a file named `query.json` and place the following query in it:
 			"terms": {
 				"field": "type",
 				"size": 5
-			},
-			"aggs": {
-				"byLogLevel": {
-					"terms": {
-						"field": "loglevel",
-						"size": 5
-					}
-				}
 			}
 		}
 	}
@@ -100,39 +92,11 @@ Example result:
       "buckets": [
         {
           "key": "web-app",
-          "doc_count": 163690,
-          "byLogLevel": {
-            "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 0,
-            "buckets": [
-              {
-                "key": "INFO",
-                "doc_count": 163512
-              },
-              {
-                "key": "WARN",
-                "doc_count": 178
-              }
-            ]
-          }
+          "doc_count": 163690
         },
         {
           "key": "core-service",
-          "doc_count": 64893,
-          "byLogLevel": {
-            "doc_count_error_upper_bound": 0,
-            "sum_other_doc_count": 0,
-            "buckets": [
-              {
-                "key": "TRACE",
-                "doc_count": 940
-              },
-              {
-                "key": "DEBUG",
-                "doc_count": 20
-              }
-            ]
-          }
+          "doc_count": 64893
         }      
       ]
     }
