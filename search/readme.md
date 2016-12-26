@@ -3,7 +3,7 @@
 ## General
 Search API gives you the ability to run queries via REST (i.e. HTTP). The query language is elasticsearch Search API DSL, with certain limitations. 
 
-## Limitations
+## License 
 Using the API requires a special license from Logz.io, and an API token which can be generated here - https://app.logz.io/#/dashboard/account/tokens 
 
 The number of queries executed is controlled and limited by Logz.io.
@@ -20,7 +20,7 @@ URL: https://api.logz.io/v1/search﻿
 * "X-USER-TOKEN" -  The value should be the API token you generated (as explained in the License section above)
 
 ### Request Body 
-Elasticsearch Search API Body as documented  in [Elaticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search.html), with the following restrictions:
+Elasticsearch Search API Body as documented  in [Elaticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html), with the following restrictions:
 * The only top level elements we support in the Elasticsearch Search API are:  `query`, `from`, `size`, `sort`, `_source`, `post_filter`, `aggs`, `aggregations`
 * When using `query_string` element, you are not allowed to set its field named `allow_leading_wildcard` to true
 * When using `wildcard` element, you are not allowed to have its value start with `*` or `?`
@@ -44,10 +44,9 @@ Elasticsearch Search API Body as documented  in [Elaticsearch documentation](htt
 | 400         | "'wildcard' queries are not allowed to start with '*' or '?'" | |
 | 400         | "contains a wildcard search with leading wildcard which is not allowed [...]" | |
 | 400         | "Query has failed. ES Response: [...]" | Elasticsearch failed running this search request. See the ES response to understand what went wrong. Most likely the syntax of the search request does not conform with the search API DSL - see link above for full documentation |
-| 400         | "This search can't be executed. Please contact customer support for more details" | Something unexpected in the query prevented him from running. Contact our customer support for help |
 | 400         | "Query syntax (in 'query' field) is invalid: [...]" | |
 | 400         | "This search can't be executed: [...]. Please contact customer support for more details" | Something unexpected in the query prevented him from running. Contact our customer support for help | 
-| 403         |  | Your account is not allowed to use Search API |
+| 403         |  | Your account is not allowed to use Search API. Please contact support/sales to enable this feature for you|
 | 429         |  | Exceeded your account rate limit of searches |
 | 503         |  | Our service is temporarily unavailable. You should try again when that happens. |
 | All other codes | A message that explain the specific error | Query failures |
