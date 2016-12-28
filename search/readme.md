@@ -1,10 +1,10 @@
 # Search API
 
 ## General
-Search API gives you the ability to run queries via REST (i.e. HTTP). The query language is elasticsearch Search API DSL, with certain limitations. 
+The Search API allows Logz.io users to run queries on the data in their account via REST (i.e. HTTP). The query language used is Elasticsearch Search API DSL, with certain limitations. We highly recommend you read the restrictions listed below (In the Request Body section) before beginning to use the API
 
 ## License 
-Using the API requires a special license from Logz.io, and an API token which can be generated here - https://app.logz.io/#/dashboard/account/tokens 
+Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/account/tokens 
 
 The number of queries executed is controlled and limited by Logz.io.
 
@@ -14,24 +14,24 @@ The number of results are limited to 10,000.
 
 ### URL
 URL: https://api.logz.io/v1/search﻿
-* Make sure to use https and not http, otherwise you will get 403 Forbidden.
+* Make sure to use https and not http, otherwise you will get a '403 Forbidden' response..
 
 ### HTTP Headers
 * "X-USER-TOKEN" -  The value should be the API token you generated (as explained in the License section above)
 
 ### Request Body 
 Elasticsearch Search API Body as documented  in [Elaticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html), with the following restrictions:
-* The only top level elements we support in the Elasticsearch Search API are:  `query`, `from`, `size`, `sort`, `_source`, `post_filter`, `aggs`, `aggregations`
-* When using `query_string` element, you are not allowed to set its field named `allow_leading_wildcard` to true
-* When using `wildcard` element, you are not allowed to have its value start with `*` or `?`
-* Your query will only run on data you sent from today and yesterday. You can still specify a filter on timestamp field to allow smaller time frame.
-* When specifying `size` for aggregations, the value can not exceed 1000.
+* We support the following top-level elements in the Elasticsearch Search API:  `query`, `from`, `size`, `sort`, `_source`, `post_filter`, `aggs`, `aggregations`
+* When using the `query_string` element, you are not allowed to set its field named `allow_leading_wildcard` to true
+* When using the `wildcard` element, you are not allowed to have its value start with `*` or `?`
+* Your query will only run on data you sent today and yesterday. You can still specify a filter on the timestamp field to allow smaller time frame.
+* When specifying the `size` element for aggregations, the value cannot exceed 1000.
 * You can not nest 2 or more bucket aggregations of the following types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms` and `terms`
-* You can not sort on `message` field
-* You can not aggregate on `message` field
-* You can not use aggregation type `significant_terms`
-* You can not use `fuzzy_max_expansions` or `max_expansions` inside `query`
-* You can not use `max_determinized_states` inside `query`
+* You can not sort on the `message` field
+* You can not aggregate on the `message` field
+* You can not use the aggregation type `significant_terms`
+* You can not use the `fuzzy_max_expansions` or `max_expansions` elements inside the `query` element
+* You can not use the `max_determinized_states` element inside the `query` element
 
 ### Response
 
@@ -40,10 +40,10 @@ Elasticsearch Search API Body as documented  in [Elaticsearch documentation](htt
 | ----------- | ------- | ---- | 
 | 200         | The result of the query, as documented in Elasticsearch Search API (link above) | Query succeeded |
 | 400         | "Found JSON elements which are not allowed [...]" | See Limits above for list of allowed elements in Query |
-| 400         | "query_string.allow_leading_wildcard not allowed to be true" | |
-| 400         | "'wildcard' queries are not allowed to start with '*' or '?'" | |
-| 400         | "contains a wildcard search with leading wildcard which is not allowed [...]" | |
-| 400         | "Query has failed. ES Response: [...]" | Elasticsearch failed running this search request. See the ES response to understand what went wrong. Most likely the syntax of the search request does not conform with the search API DSL - see link above for full documentation |
+| 400         | "[...] query_string.allow_leading_wildcard not allowed to be true" | |
+| 400         | "[...] 'wildcard' queries are not allowed to start with '*' or '?'" | |
+| 400         | "[...] contains a wildcard search with leading wildcard which is not allowed [...]" | |
+| 400         | "Query has failed. Elasticsearch Response: [...]" | Elasticsearch failed running this search request. See the Elasticsearch response to understand what went wrong. Most likely the syntax of the search request does not conform with the search API DSL - see link above for full documentation |
 | 400         | "Query syntax (in 'query' field) is invalid: [...]" | |
 | 400         | "This search can't be executed: [...]. Please contact customer support for more details" | Something unexpected in the query prevented him from running. Contact our customer support for help | 
 | 403         |  | Your account is not allowed to use Search API. Please contact support/sales to enable this feature for you|
@@ -80,8 +80,8 @@ Create a file named `query.json` and place the following query in it:
 		}
 	}
 }
-
 ```
+This query returns the count of documents per each value of the field `type`, in the last 5 minutes
 
 Run the following command:
 ```bash

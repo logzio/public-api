@@ -1,7 +1,7 @@
 # Query API
 
 ## DEPRECATION NOTICE - Dec 2016
-We're deprecating this Query API in favor of Search API which is a superset of this API. Please refrain from using it.
+We're deprecating the existing Query API and superseding it with a new Search API. Please refrain from using it.
 
 ## General
 The Query API allows to run search queries on the data in your Logz.io account.
