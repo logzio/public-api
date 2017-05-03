@@ -48,6 +48,7 @@ Elasticsearch Search API Body as documented  in [Elaticsearch documentation](htt
 | 400         | "This search can't be executed: [...]. Please contact customer support for more details" | Something unexpected in the query prevented him from running. Contact our customer support for help | 
 | 403         |  | Your account is not allowed to use Search API. Please contact support/sales to enable this feature for you|
 | 429         |  | Exceeded your account rate limit of searches |
+| 429         | "Your account is allowed to run up to __ concurrent queries via the API" | Your account is allowed to run up to X concurrent queries via the Search API. This error means you've exceeded this limit |
 | 503         |  | Our service is temporarily unavailable. You should try again when that happens. |
 | All other codes | A message that explain the specific error | Query failures |
 ----------------------
