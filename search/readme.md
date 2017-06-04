@@ -13,8 +13,8 @@ The number of results are limited to 10,000.
 ## Search Command
 
 ### URL
-URL: https://api.logz.io/v1/search﻿ (US Based Accounts)
-     https://api-eu.logz.io/v1/search﻿ (EU Based Accounts)
+URL: https://api.logz.io/v1/search (US Accounts)
+     https://api-eu.logz.io/v1/search (EU Accounts)
 * Make sure to use https and not http, otherwise you will get a '403 Forbidden' response..
 
 ### HTTP Headers
