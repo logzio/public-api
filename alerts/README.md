@@ -52,7 +52,7 @@ Sample response:
     "title": "Error level logs",
     "description": "Capture ERROR level logs in the given time range",
     "query_string": "loglevel:ERROR",
-    "filter": "{\"bool\":{\"must\":[{\"range\":{\"@timestamp\":{\"gte\":1472454810934,\"lte\":1472458410934}}}],\"must_not\":[]}}",
+    "filter": "{\"bool\":{\"must\":[{\"match\":{\"type\":\"mytype\"}}],\"must_not\":[]}}",
     "operation": "GREATER_THAN",
     "threshold": 1,
     "searchTimeFrameMinutes": 5,
