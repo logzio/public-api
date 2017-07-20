@@ -339,7 +339,7 @@ See  [Query string syntax](https://www.elastic.co/guide/en/elasticsearch/referen
 						"items": {
 							"type": "string"
 						},
-						"maxItems": 1,
+						"maxItems": 3,
 						"minItems": 0
 					},
 					"alertNotificationEndpoints": {
