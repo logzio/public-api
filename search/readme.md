@@ -4,7 +4,7 @@
 The Search API allows Logz.io users to run queries on the data in their account via REST (i.e. HTTP). The query language used is Elasticsearch Search API DSL, with certain limitations. We highly recommend you read the restrictions listed below (In the Request Body section) before beginning to use the API
 
 ## License 
-Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/account/tokens 
+Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.internal.logz.io/#/dashboard/settings/shared-tokens
 
 The number of queries executed is controlled and limited by Logz.io.
 
