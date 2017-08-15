@@ -6,7 +6,7 @@ During a create or update operation the alert structure is validated.
 The API also allows fetching an account notification endpoints.
 
 ## Limitations
-Using the API requires an API token which can be generated here - https://app.logz.io/#/dashboard/account/tokens 
+Using the API requires an API token which can be generated here - https://app.internal.logz.io/#/dashboard/settings/shared-tokens 
 
 The number of simultaneous api calls is controlled and limited by Logz.io.
 
