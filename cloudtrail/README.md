@@ -16,7 +16,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  /log-shipping/cloudtrails
+  https://api.logz.io/v1/log-shipping/cloudtrails
 
 * **Method:**
 
@@ -40,7 +40,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  /log-shipping/cloudtrails/:id
+  https://api.logz.io/v1/log-shipping/cloudtrails/:id
 
 * **Method:**
 
@@ -67,7 +67,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  /log-shipping/cloudtrails
+  https://api.logz.io/v1/log-shipping/cloudtrails
 
 * **Method:**
 
@@ -95,7 +95,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  /log-shipping/cloudtrails/:id
+  https://api.logz.io/v1/log-shipping/cloudtrails/:id
 
 * **Method:**
 
@@ -126,7 +126,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  /log-shipping/cloudtrails/:id
+  https://api.logz.io/v1/log-shipping/cloudtrails/:id
 
 * **Method:**
 
