@@ -99,12 +99,12 @@ The number of queries executed is controlled and limited by Logz.io.
 *  **Data Params**
 
 	**Required:**
-   `bucket=[string]` - cloudtrail bucket path .
-   		example - "LogzIoBucket"
-   `prefix=[string]` - prefix inside the bucket.
-   		example - "AWSLogz/5819239577123/CloudTrail"
-   `accessKey=[string]` - S3 access key for accessing CloudTrail.
-   `secretKey=[string]` - S3 secret key for accessing CloudTrail.
+   `bucket=[string]` - cloudtrail bucket path . <br />
+   		example - "LogzIoBucket" <br />
+   `prefix=[string]` - prefix inside the bucket. <br />
+   		example - "AWSLogz/5819239577123/CloudTrail" <br />
+   `accessKey=[string]` - S3 access key for accessing CloudTrail. <br />
+   `secretKey=[string]` - S3 secret key for accessing CloudTrail. <br />
 
 * **Success Response:**
 
@@ -130,13 +130,13 @@ The number of queries executed is controlled and limited by Logz.io.
 
 *  **Data Params**
 
-   `bucket=[string]` - cloudtrail bucket path .
-   		example - "LogzIoBucket"
-   `prefix=[string]` - prefix inside the bucket.
-   		example - "AWSLogz/5819239577123/CloudTrail"
-   `accessKey=[string]` - S3 access key for accessing CloudTrail.
-   `secretKey=[string]` - S3 secret key for accessing CloudTrail.
-   `active=[boolean]` - change CloudTrail to be active/disabled.
+   `bucket=[string]` - cloudtrail bucket path . <br />
+   		example - "LogzIoBucket" <br />
+   `prefix=[string]` - prefix inside the bucket. <br />
+   		example - "AWSLogz/5819239577123/CloudTrail" <br />
+   `accessKey=[string]` - S3 access key for accessing CloudTrail. <br />
+   `secretKey=[string]` - S3 secret key for accessing CloudTrail. <br />
+   `active=[boolean]` - change CloudTrail to be active/disabled. <br />
 
 * **Success Response:**
 
