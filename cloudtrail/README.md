@@ -1,7 +1,7 @@
 # CloudTrail API
 
 ## General
-The CloudTrail API allows creating, updating, reading and .
+The CloudTrail API allows creating, updating, reading and deleting.
 During a create or update operation the CloudTrail credentials are validated.
 
 ## Limitations
@@ -36,7 +36,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 **Get Specific CloudTrail**
 ----
-  Returns specfic CloudTrail settings by id.
+  Returns a specfic CloudTrail settings by id.
 
 * **URL**
 
@@ -61,29 +61,6 @@ The number of queries executed is controlled and limited by Logz.io.
     	"prefix": "AWSLogs/7364988021587/myprefix"
     ]`
 
-
-**Delete CloudTrail**
-----
-  Delete specfic CloudTrail settings by id.
-
-* **URL**
-
-  /log-shipping/cloudtrails/:id
-
-* **Method:**
-
-  `DELETE`
-
-*  **URL Params**
- 
-   `id=[integer]` - settings id to delete
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:** `{"message": "CloudTrail deleted successfully."}`
-
-
 **Create CloudTrail**
 ----
   Create new CloudTrail settings.
@@ -98,7 +75,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 *  **Data Params**
 
-	**Required:**
+	**Required:** <br />
    `bucket=[string]` - cloudtrail bucket path . <br />
    		example - "LogzIoBucket" <br />
    `prefix=[string]` - prefix inside the bucket. <br />
@@ -114,7 +91,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 **Update CloudTrail**
 ----
-  Create new CloudTrail settings.
+  Create a new CloudTrail setting.
 
 * **URL**
 
@@ -128,7 +105,7 @@ The number of queries executed is controlled and limited by Logz.io.
  
    `id=[integer]` - settings id to update
 
-*  **Data Params**
+*  **Data Params** 
 
    `bucket=[string]` - cloudtrail bucket path . <br />
    		example - "LogzIoBucket" <br />
@@ -137,6 +114,27 @@ The number of queries executed is controlled and limited by Logz.io.
    `accessKey=[string]` - S3 access key for accessing CloudTrail. <br />
    `secretKey=[string]` - S3 secret key for accessing CloudTrail. <br />
    `active=[boolean]` - change CloudTrail to be active/disabled. <br />
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** `{"message": "CloudTrail deleted successfully."}`
+
+**Delete CloudTrail**
+----
+  Delete a specfic CloudTrail settings by id.
+
+* **URL**
+
+  /log-shipping/cloudtrails/:id
+
+* **Method:**
+
+  `DELETE`
+
+*  **URL Params**
+ 
+   `id=[integer]` - settings id to delete
 
 * **Success Response:**
 
