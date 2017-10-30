@@ -72,6 +72,7 @@ Sample response:
 
 ### Request Header:
 - X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/account/tokens 
+- "Content-Type" - "application/json" (required)
 
 ### query_string format
 See  [Query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax)
