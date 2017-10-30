@@ -19,6 +19,7 @@ URL: https://api.logz.io/v1/search (US Accounts)
 
 ### HTTP Headers
 * "X-USER-TOKEN" -  The value should be the API token you generated (as explained in the License section above)
+* "Content-Type" - "application/json"  (required)
 
 ### Request Body 
 Elasticsearch Search API Body as documented  in [Elaticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html), with the following restrictions:
