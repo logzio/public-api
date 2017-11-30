@@ -6,6 +6,7 @@ It also enable creating, deleting and reading query filters to filter on the que
 
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
+
 In addition, using the Shared Tokens API requires special license from logz.io.
 
 ## Limitations
@@ -33,7 +34,7 @@ The number of total shared tokens in account is limited by by Logz.io.
 ### Examples:
 
 
-## Execute a create a shared token call
+## Execute a create shared token call
 
 ```
 $ curl -XPOST 'https://api.logz.io/shared-tokens'
