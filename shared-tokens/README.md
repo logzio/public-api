@@ -5,11 +5,10 @@ The Shared Tokens API allows creating, updating, reading and deleting tokens tha
 It also enable creating, deleting and reading query filters to filter on the queries done using the tokens
 
 ## License
-Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
+Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
+In addition, using the Shared Tokens API requires special license from logz.io.
 
 ## Limitations
-Using the Shared Tokens API requires special permission from logz.io.
-
 The number of simultaneous api calls is controlled and limited by Logz.io.
 
 The number of total shared tokens in account is limited by by Logz.io.
@@ -34,10 +33,12 @@ The number of total shared tokens in account is limited by by Logz.io.
 ### Examples:
 
 
-## Execute a get all shared tokens call
+## Execute a create a shared token call
 
 ```
 $ curl -XPOST 'https://api.logz.io/shared-tokens'
+  --header "X-API-TOKEN : your-api-access-token"
+  --header "Content-Type: application/json"
   -d '{
         "post": {
           "tokenName": "string",
@@ -45,9 +46,11 @@ $ curl -XPOST 'https://api.logz.io/shared-tokens'
             2
           ]
         }
-    }'```
+    }'
+```
 
 Sample response:
+
 ```
   {
     "id": 7,
@@ -59,36 +62,436 @@ Sample response:
   }
 ```
 
-## Execute a get all shared tokens call
+### API specification in Swagger format
+```json
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Services"
+  },
+  "paths": {
+    "/shared-tokens": {
+      "get": {
+        "operationId": "getAllTokens",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/definitions/SharedToken"
+              }
+            },
+            "headers": {
 
-```
-$ curl -XPOST 'https://api.logz.io/shared-tokens'
-  -d '{
-       "get": {
-       }
-    }'```
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/CreateSharedTokenRequest"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SharedToken"
+            },
+            "headers": {
 
-Sample response:
-```
-[
-  {
-    "id": 7,
-    "name": "string",
-    "token": "string",
-    "filterIds": [
-      2
-    ]
+            }
+          }
+        }
+      }
+    },
+    "/shared-tokens/{id}": {
+      "get": {
+        "operationId": "getToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SharedToken"
+            },
+            "headers": {
+
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "updateToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SharedToken"
+            },
+            "headers": {
+
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/shared-tokens/filters": {
+      "get": {
+        "operationId": "getAllFilters",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/definitions/QueryFilter"
+              }
+            },
+            "headers": {
+
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createFilter",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/QueryFilter"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/QueryFilter"
+            },
+            "headers": {
+
+            }
+          }
+        }
+      }
+    },
+    "/shared-tokens/filters/{id}": {
+      "get": {
+        "operationId": "getFilter",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/QueryFilter"
+            },
+            "headers": {
+
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteFilter",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-AUTH-TOKEN",
+            "in": "header",
+            "description": "Authentication User Session",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
   }
-]
+}
 ```
-
-
-### Errors
-
-{
-  "code": 400
-}
-
-{
-   "code": 404
-}
