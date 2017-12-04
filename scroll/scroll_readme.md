@@ -17,7 +17,7 @@ The number of results returned is limited by the account's plan and calculated o
 ### URL
 URL: https://api.logz.io/v1/scroll (US Accounts)
      https://api-eu.logz.io/v1/scroll (EU Accounts)
-* Make sure to use https and not http, otherwise you will get a '403 Forbidden' response..
+* Make sure to use https and not http, otherwise you will get a '403 Forbidden' response.
 
 ### HTTP Headers
 * "X-API-TOKEN" -  The value should be the API token you generated (as explained in the License section above)
@@ -41,7 +41,7 @@ Elasticsearch Scroll API Body as documented  in [Elaticsearch documentation](htt
 
 ----------------------
 | Status code | Body    | Meaning |
-| ----------- | ------- | ---- | 
+| ----------- | ------- | ------- | 
 | 200         | The result of the query, as documented in Elasticsearch Search API (link above) | Query succeeded |
 | 400         | "Found JSON elements which are not allowed [...]" | See Limits above for list of allowed elements in Query |
 | 400         | "[...] query_string.allow_leading_wildcard not allowed to be true" | |
@@ -121,10 +121,12 @@ Create a file named `batch.json` and place the following in it:
 {
 	"size": 1,
 	"scroll": "1m",
-    "scroll_id": "DnF1ZXJ5VGhlbkZldGNoAgAAAAAAN0JtFkNnX3lDWUFqU0R5TkNqQ3JPdm55ancAAAAAADdCbhZDZ195Q1lBalNEeU5DakNyT3ZueWp3",
+	"scroll_id": "DnF1ZXJ5VGhlbkZldGNoAgAAAAAAN0JtFkNnX3lDWUFqU0R5TkNqQ3JPdm55ancAAAAAADdCbhZDZ195Q1lBalNEeU5DakNyT3ZueWp3",
 }
 ```
 This query returns new scroll_id and the next document from the last 5 minutes
+
+The scroll_id parameter should contain the scrollId that was return in the previous result.   
 
 Run the following command:
 ```bash
