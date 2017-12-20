@@ -12,24 +12,27 @@ The number of simultaneous api calls is controlled and limited by Logz.io.
 
 The number of total active alerts in account is limited by the account plan.
 
-###Endpoints
+## Endpoints
 
 **Create Alert**
 ----
-POST https://api.logz.io/v1/alerts
-
-Expects AlertRequest as body, and creates a new alert.
+POST https://api.logz.io/v1/alerts<br />
+<br />
+Expects AlertRequest as body, and creates a new alert.<br />
 
 **Update Alert**
-PUT http://api.logz.io/v1/alerts/:id
-
-Expects AlertRequest as body, updates an existing alert by id.
+----
+PUT http://api.logz.io/v1/alerts/:id <br />
+<br />
+Expects AlertRequest as body, updates an existing alert by id.<br />
 Currently does not support partial updates, so it should be used with the same parameters as the create endpoint.
 
 **Get Alert By ID**
+----
 GET http://api.logz.io/v1/alerts/:id
 
 **Get All Alerts**
+----
 GET http://api.logz.io/v1/alerts
 
 ### Examples:
@@ -97,7 +100,7 @@ Sample response:
 ### query_string format
 See  [Query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax)
 
-### API specification in Swagger format
+## API specification in Swagger format
 [JSON file here](swagger.json)
 
 ### Errors
