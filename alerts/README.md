@@ -1,13 +1,11 @@
 # Alerts API
 
 ## General
-----
 The Alerts API allows creating, updating, reading and deleting alerts.
 During a create or update operation the alert structure is validated.
 The API also allows fetching an account notification endpoints.
 
 ## Limitations
-----
 Using the API requires an API token which can be generated here - https://app.logz.io/#/dashboard/settings/shared-tokens 
 
 The number of simultaneous api calls is controlled and limited by Logz.io.
@@ -15,7 +13,6 @@ The number of simultaneous api calls is controlled and limited by Logz.io.
 The number of total active alerts in account is limited by the account plan.
 
 ## Endpoints
-----
 ***Create Alert***
 POST https://api.logz.io/v1/alerts<br />
 <br />
@@ -34,7 +31,6 @@ GET http://api.logz.io/v1/alerts/:id
 GET http://api.logz.io/v1/alerts
 
 ## Examples:
-----
 ### Create Alert
 Update calls should be done with the same parameters, as partial updates are not currently supported.
 ```
@@ -100,11 +96,9 @@ Sample response:
 See  [Query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax)
 
 ## API specification in Swagger format
-----
 [JSON file here](swagger.json)
 
 ## Errors
-----
 400 - Bad request, if the alert definition isn't valid.
 403 - Unauthorized, if an invalid token header was sent.
 404 - Not found, if the alert id was not found.
