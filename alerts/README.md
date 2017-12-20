@@ -17,6 +17,7 @@ The number of total active alerts in account is limited by the account plan.
 POST https://api.logz.io/v1/alerts<br />
 <br />
 Expects AlertRequest as body, and creates a new alert.<br />
+You can find the expected structure in the examples section.
 
 **Update Alert** <br />
 PUT http://api.logz.io/v1/alerts/:id <br />
