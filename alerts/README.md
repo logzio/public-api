@@ -13,21 +13,21 @@ The number of simultaneous api calls is controlled and limited by Logz.io.
 The number of total active alerts in account is limited by the account plan.
 
 ## Endpoints
-***Create Alert***
+**Create Alert**
 POST https://api.logz.io/v1/alerts<br />
 <br />
 Expects AlertRequest as body, and creates a new alert.<br />
 
-***Update Alert***
+**Update Alert**
 PUT http://api.logz.io/v1/alerts/:id <br />
 <br />
 Expects AlertRequest as body, updates an existing alert by id.<br />
 Currently does not support partial updates, so it should be used with the same parameters as the create endpoint.
 
-***Get Alert By ID***
+**Get Alert By ID**
 GET http://api.logz.io/v1/alerts/:id
 
-***Get All Alerts***
+**Get All Alerts**
 GET http://api.logz.io/v1/alerts
 
 ## Examples:
