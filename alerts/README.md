@@ -12,9 +12,28 @@ The number of simultaneous api calls is controlled and limited by Logz.io.
 
 The number of total active alerts in account is limited by the account plan.
 
-### Examples:
-## Execute a create alert call
+## Endpoints
+**Create Alert** <br />
+POST https://api.logz.io/v1/alerts<br />
+<br />
+Expects AlertRequest as body, and creates a new alert.<br />
+You can find the expected structure in the examples section.
 
+**Update Alert** <br />
+PUT http://api.logz.io/v1/alerts/:id <br />
+<br />
+Expects AlertRequest as body, updates an existing alert by id.<br />
+Currently does not support partial updates, so it should be used with the same parameters as the create endpoint.
+
+**Get Alert By ID** <br />
+GET http://api.logz.io/v1/alerts/:id
+
+**Get All Alerts** <br />
+GET http://api.logz.io/v1/alerts
+
+## Examples:
+### Create Alert
+Update calls should be done with the same parameters, as partial updates are not currently supported.
 ```
 $ curl -XPOST 'https://api.logz.io/v1/alerts'  
   --header "X-API-TOKEN : your-api-access-token" 
@@ -77,318 +96,10 @@ Sample response:
 ### query_string format
 See  [Query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax)
 
-### API specification in Swagger format
-```json
-{
-	"swagger": "2.0",
-	"info": {
-		"version": "1.0.0",
-		"title": "Services"
-	},
-	"paths": {
-		"/alerts": {
-			"get": {
-				"summary": "Get all alerts",
-				"produces": ["application/json"],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/AlertResponse"
-							}
-						}
-					}
-				}
-			},
-			"post": {
-				"summary": "Create an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"in": "body",
-					"name": "body",
-					"required": true,
-					"schema": {
-						"$ref": "#/definitions/AlertRequest"
-					}
-				}],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"schema": {
-							"$ref": "#/definitions/AlertResponse"
-						}
-					}
-				}
-			}
-		},
-		"/alerts/notification-endpoints": {
-			"get": {
-				"summary": "Get all of the account notification endpoints",
-				"produces": ["application/json"],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/NotificationEndpointResponse"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/alerts/{alertId}": {
-			"get": {
-				"summary": "Get an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "alertId",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"schema": {
-							"$ref": "#/definitions/AlertResponse"
-						}
-					}
-				}
-			},
-			"put": {
-				"summary": "Update an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "alertId",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}, {
-					"in": "body",
-					"name": "body",
-					"required": true,
-					"schema": {
-						"$ref": "#/definitions/AlertRequest"
-					}
-				}],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"schema": {
-							"$ref": "#/definitions/AlertResponse"
-						}
-					}
-				}
-			},
-			"delete": {
-				"summary": "Delete an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "alertId",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}],
-				"responses": {
-					"default": {
-						"description": "successful operation"
-					}
-				}
-			}
-		},
-		"definitions": {
-			"AlertResponse": {
-				"type": "object",
-				"properties": {
-					"alertId": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"lastUpdated": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"lastUpdatedBy": {
-						"type": "string"
-					},
-					"severity": {
-						"type": "string",
-						"enum": ["LOW", "MEDIUM", "HIGH"]
-					},
-					"title": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"query_string": {
-						"type": "string"
-					},
-					"filter": {
-						"type": "string"
-					},
-					"operation": {
-						"type": "string",
-						"enum": ["LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUALS", "GREATER_THAN_OR_EQUALS", "EQUALS", "NOT_EQUALS"]
-					},
-					"threshold": {
-						"type": "number",
-						"format": "double"
-					},
-					"searchTimeFrameMinutes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"notificationEmails": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"isEnabled": {
-						"type": "boolean"
-					},
-					"suppressNotificationsMinutes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"valueAggregationType": {
-						"type": "string",
-						"enum": ["SUM", "MIN", "MAX", "AVG", "COUNT", "NONE"]
-					},
-					"valueAggregationField": {
-						"type": "string"
-					},
-					"groupByAggregationFields": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"alertNotificationEndpoints": {
-						"type": "array",
-						"items": {
-							"type": "integer",
-							"format": "int32"
-						}
-					}
-				}
-			},
-			"AlertRequest": {
-				"type": "object",
-				"required": ["notificationEmails", "query_string", "severity", "title"],
-				"properties": {
-					"severity": {
-						"type": "string",
-						"enum": ["LOW", "MEDIUM", "HIGH"]
-					},
-					"title": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"query_string": {
-						"type": "string"
-					},
-					"filter": {
-						"type": "string"
-					},
-					"operation": {
-						"type": "string",
-						"enum": ["LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUALS", "GREATER_THAN_OR_EQUALS", "EQUALS", "NOT_EQUALS"]
-					},
-					"threshold": {
-						"type": "number",
-						"format": "double"
-					},
-					"searchTimeFrameMinutes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"notificationEmails": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"isEnabled": {
-						"type": "boolean",
-                        "default": true
-					},
-					"suppressNotificationsMinutes": {
-						"type": "integer",
-						"format": "int32",
-						"minimum": 5.0
-					},
-					"valueAggregationType": {
-						"type": "string",
-						"enum": ["SUM", "MIN", "MAX", "AVG", "COUNT", "NONE"]
-					},
-					"valueAggregationField": {
-						"type": "string"
-					},
-					"groupByAggregationFields": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"maxItems": 3,
-						"minItems": 0
-					},
-					"alertNotificationEndpoints": {
-						"type": "array",
-						"items": {
-							"type": "integer",
-							"format": "int32"
-						}
-					}
-				}
-			},
-			"NotificationEndpointResponse": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"type": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"title": {
-						"type": "string"
-					},
-					"createdDate": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"modifiedDate": {
-						"type": "string",
-						"format": "date-time"
-					}
-				}
-			}
-		}
-	}
-}
-```
+## API specification in Swagger format
+[JSON file here](swagger.json)
 
-### Errors
-
-{
-  "code": 400
-}
-
-{
-   "code": 404
-}
+## Errors
+400 - Bad request, if the alert definition isn't valid.<br />
+403 - Unauthorized, if an invalid token header was sent.<br />
+404 - Not found, if the alert id was not found.<br />
