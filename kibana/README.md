@@ -1,4 +1,4 @@
-# KIbana API
+# Kibana API
 
 ## General
 The Kibana API allows import and export of kibana saved objects.
@@ -30,9 +30,9 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **Request:**
 ---
-| Parameter|Description|
-|---|---|
-| type| search/dashboard/visualization|
+| Parameter|Description|Supported Values
+|---|---|---|
+| type| The object type to export | search/dashboard/visualization
 ---
 
 * **Swagger Specification**
