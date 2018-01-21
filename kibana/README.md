@@ -1,4 +1,4 @@
-# Kibana API
+# Kibana Import/Export API
 
 ## General
 The Kibana API allows import and export of kibana saved objects.
