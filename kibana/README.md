@@ -167,7 +167,7 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Description|
 |---|---|
-| kibanaVersion| The version of the kibana where the saved objects was generated from|
+| kibanaVersion| The version of the kibana where the saved objects was generated from. User can only import files that was generated from the same kibana version|
 | override| true will override existing key with new data|
 | hits| array of saved objects|
 ---
