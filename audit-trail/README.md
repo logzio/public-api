@@ -1,8 +1,7 @@
 # Audit-Trail API
 
 ## General
-
-<add description here>
+The Audit Trail API allows querying audit events  
 
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
@@ -17,15 +16,15 @@ The number of queries executed is controlled and limited by Logz.io.
 **Supported Actions**
 ---
 
-***List Account Audit trails***
+***List Account Audit trail events***
 ----
-  Returns a json list of audits of an account.
+  Returns a json list of audit events of an account.
 
 * **URL**
 
   https://api.logz.io/v1/audit-trail
 
-* **Http Method:**
+* **HTTP Method:**
 
   `POST`
 
@@ -33,13 +32,13 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| auditEventType| Object|Action to filter. Defined as one of the elements in the results retrieved by "Actions" API|
+| auditEventType| Object|Event type to filter. Defined as one of the elements in the results retrieved by "Event Type" API|
 | auditEventUser| Object|User to filter|
-| fromDate| integer| Start time of the audit list (millisecond since 1970)|
-| toDate| integer| End time of the audit list (millisecond since 1970)|
+| fromDate| integer| Start time of the audit list |
+| toDate| integer| End time of the audit list |
 | includeFiltersData| boolean| Should include the audit list as part of the result|
 | size| integer|number of rows to return|
-| sortDescending|boolean| Sort order. true=descending|
+| sortDescending|boolean| Sorting order. True=Descending|
 ---
 
 * **Swagger Specification**
@@ -69,7 +68,7 @@ The number of queries executed is controlled and limited by Logz.io.
                     "headers": {
                     },
                     "schema": {
-                        "$ref": "#/definitions/AuditTrialFilteredResponse"
+                        "$ref": "#/definitions/AuditTrailFilteredResponse"
                     }
                 }
             }
@@ -103,7 +102,7 @@ The number of queries executed is controlled and limited by Logz.io.
             }
         }
     },
-    "AuditTrialFilteredResponse": {
+    "AuditTrailFilteredResponse": {
         "properties": {
             "auditEventTypesList": {
                 "type": "array",
@@ -256,15 +255,15 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-***Actions***
+***EventsTypes***
 ----
-  Return a list of actions
+  Return a list of event types
 
 * **URL**
 
-  https://api.logz.io/v1/audit-trail/actions
+  https://api.logz.io/v1/audit-trail/event-types
 
-* **Http Method:**
+* **HTTP Method:**
 
   `POST`
 
@@ -279,7 +278,7 @@ The number of queries executed is controlled and limited by Logz.io.
 * **Swagger Specfication**
 ```json
 {
-    "/audit-trail/actions": {
+    "/audit-trail/event-types": {
         "post": {
             "consumes": [
                 "application/json"
@@ -295,19 +294,19 @@ The number of queries executed is controlled and limited by Logz.io.
                     "headers": {
                     },
                     "schema": {
-                        "$ref": "#/definitions/AuditTrialActionsResponse"
+                        "$ref": "#/definitions/AuditTrailEventTypesResponse"
                     }
                 }
             },
             "tags": [
-                "actions"
+                "eventTypes"
             ]
         }
     },
     
-    "AuditTrialActionsResponse": {
+    "AuditTrailEventTypesResponse": {
         "properties": {
-            "actions": {
+            "eventTypes": {
                 "type": "array",
                 "items": {
                     "type": "string"
@@ -326,7 +325,7 @@ The number of queries executed is controlled and limited by Logz.io.
   
 ```json
 {
-  "actions": [
+  "eventTypes": [
     "Added user",
     "Admin created a sub account",
     "Admin created a timeless index",
