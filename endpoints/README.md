@@ -22,7 +22,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts
+  https://api.logz.io/v1/endpoints
 
 * **HTTP Method:**
 
@@ -140,7 +140,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/{id}
+  https://api.logz.io/v1/endpoints/{id}
 
 * **HTTP Method:**
 
@@ -250,7 +250,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/{id}
+  https://api.logz.io/v1/endpoints/{id}
 
 * **HTTP Method:**
 
@@ -333,7 +333,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/slack
+  https://api.logz.io/v1/endpoints/slack
 
 * **HTTP Method:**
 
@@ -456,7 +456,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/slack/{id}
+  https://api.logz.io/v1/endpoints/slack/{id}
 
 * **HTTP Method:**
 
@@ -587,7 +587,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/pager-duty
+  https://api.logz.io/v1/endpoints/pager-duty
 
 * **HTTP Method:**
 
@@ -690,7 +690,7 @@ The number of queries executed is controlled and limited by Logz.io.
 {
   "title": "pager-duty-example",
   "description": "this is an example",
-  "url": "http://www.example.com"
+  "serviceKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
 }
 ```
 * **Success Response:**
@@ -710,7 +710,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/pager-duty/{id}
+  https://api.logz.io/v1/endpoints/pager-duty/{id}
 
 * **HTTP Method:**
 
@@ -821,7 +821,7 @@ The number of queries executed is controlled and limited by Logz.io.
 {
   "title": "pager-duty-example",
   "description": "this is an example",
-  "url": "http://www.example.com"
+  "serviceKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
 }
 ```
 * **Success Response:**
@@ -841,7 +841,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/big-panda
+  https://api.logz.io/v1/endpoints/big-panda
 
 * **HTTP Method:**
 
@@ -969,7 +969,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/pager-duty/{id}
+  https://api.logz.io/v1/endpoints/pager-duty/{id}
 
 * **HTTP Method:**
 
@@ -1105,7 +1105,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/datadog
+  https://api.logz.io/v1/endpoints/datadog
 
 * **HTTP Method:**
 
@@ -1229,7 +1229,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/datadog/{id}
+  https://api.logz.io/v1/endpoints/datadog/{id}
 
 * **HTTP Method:**
 
@@ -1360,7 +1360,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/victorops
+  https://api.logz.io/v1/endpoints/victorops
 
 * **HTTP Method:**
 
@@ -1497,7 +1497,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/victorops/{id}
+  https://api.logz.io/v1/endpoints/victorops/{id}
 
 * **HTTP Method:**
 
@@ -1645,7 +1645,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/custom
+  https://api.logz.io/v1/endpoints/custom
 
 * **HTTP Method:**
 
@@ -1790,7 +1790,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoionts/custom/{id}
+  https://api.logz.io/v1/endpoints/custom/{id}
 
 * **HTTP Method:**
 
