@@ -1,7 +1,7 @@
 # Endpoints API
 
 ## General
-The endpoint API allows CRUD of endpoints  
+The Endpoints API allows creating, updating, reading and deleting of endpoints  
 
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
@@ -33,6 +33,30 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 ---
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+[
+  {
+    "endpointType": "Slack",
+    "id": 1,
+    "title": "example",
+    "description": "this is an example",
+    "url": "http://www.example.com"
+  },
+  {
+    "endpointType": "BigPanda",
+    "id": 2,
+    "title": "second-example",
+    "description": "This is another example",
+    "apiToken": "ccc0d7a2ce50b365ffca653e80d52ceb",
+    "appKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
+  }
+]
+```
 
 * **Swagger Specification**
 ```json
@@ -109,31 +133,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-[
-  {
-    "endpointType": "Slack",
-    "id": 1,
-    "title": "example",
-    "description": "this is an example",
-    "url": "http://www.example.com"
-  },
-  {
-    "endpointType": "BigPanda",
-    "id": 2,
-    "title": "second-example",
-    "description": "This is another example",
-    "apiToken": "ccc0d7a2ce50b365ffca653e80d52ceb",
-    "appKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
-  }
-]
-```
-
 ***Get Endpoint***
 ----
   Return endpoint by id.
@@ -150,8 +149,23 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| id| int| |
+| id| int| Endpoint Id|
 ---
+
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+    "endpointType": "Slack",
+    "id": 1,
+    "title": "example",
+    "description": "this is an example",
+    "url": "http://www.example.com"
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -229,21 +243,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-    "endpointType": "Slack",
-    "id": 1,
-    "title": "example",
-    "description": "this is an example",
-    "url": "http://www.example.com"
-}
-```
-
 ***Delete Endpoint***
 ----
   Delete an endpoint by id.
@@ -260,8 +259,16 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| id| int| |
+| id| int| Endpoint Id|
 ---
+
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+```
 
 * **Swagger Specification**
 ```json
@@ -319,14 +326,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-```
-
 ***Create Slack Endpoint***
 ----
   Create Slack endpoint.
@@ -343,10 +342,29 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| title| string|| 
-| description| string||
-| url| string||
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| url| string| Slack URL|
 ---
+
+* **Example**
+```json
+{
+  "title": "slack-example",
+  "description": "this is an example",
+  "url": "http://www.example.com"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 3
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -431,6 +449,28 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
+***Update Slack Endpoint***
+----
+  Update Slack endpoint.
+
+* **URL**
+
+  https://api.logz.io/v1/endpoints/slack/{id}
+
+* **HTTP Method:**
+
+  `PUT`
+
+* **Request:**
+---
+| Parameter|Type|Description|
+|---|---|---|
+| id| int| Endpoint ID|
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| url| string| Slack URL|
+---
+
 * **Example**
 ```json
 {
@@ -449,28 +489,6 @@ The number of queries executed is controlled and limited by Logz.io.
   "id": 3
 }
 ```
-
-***Update Slack Endpoint***
-----
-  Update Slack endpoint.
-
-* **URL**
-
-  https://api.logz.io/v1/endpoints/slack/{id}
-
-* **HTTP Method:**
-
-  `PUT`
-
-* **Request:**
----
-| Parameter|Type|Description|
-|---|---|---|
-| id| int||
-| title| string|| 
-| description| string||
-| url| string||
----
 
 * **Swagger Specification**
 ```json
@@ -562,25 +580,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title": "slack-example",
-  "description": "this is an example",
-  "url": "http://www.example.com"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 3
-}
-```
-
 ***Create PagerDuty Endpoint***
 ----
   Create PagerDuty endpoint.
@@ -597,10 +596,29 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| title| string|| 
-| description| string||
-| serviceKey| string||
+| title| string| Endpoint Name| 
+| description| string| Endpoint description|
+| serviceKey| string| PagerDuty service key|
 ---
+
+* **Example**
+```json
+{
+  "title": "pager-duty-example",
+  "description": "this is an example",
+  "serviceKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 3
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -685,25 +703,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title": "pager-duty-example",
-  "description": "this is an example",
-  "serviceKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 3
-}
-```
-
 ***Update PagerDuty Endpoint***
 ----
   Update PagerDuty endpoint.
@@ -720,11 +719,30 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| id| int||
-| title| string|| 
-| description| string||
-| serviceKey| string||
+| id| int| Endpoint Id|
+| title| string| Endpoint name|  
+| description| string| Endpoint description|
+| serviceKey| string| PagerDuty service key|
 ---
+
+* **Example**
+```json
+{
+  "title": "pager-duty-example",
+  "description": "this is an example",
+  "serviceKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 4
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -816,25 +834,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title": "pager-duty-example",
-  "description": "this is an example",
-  "serviceKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 4
-}
-```
-
 ***Create BigPanda Endpoint***
 ----
   Create BigPanda endpoint.
@@ -851,11 +850,31 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| title| string|| 
-| description| string||
-| appKey| string||
-| apiToken| string||
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| appKey| string| BigPanda app key|
+| apiToken| string| BigPanda api token|
 ---
+
+* **Example**
+```json
+{
+  "title": "big-panda-example",
+  "description": "this is an example",
+  "apiToken": "ccc0d7a2ce50b365ffca653e80d52ceb",
+  "appKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 4
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -943,6 +962,29 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
+***Update BigPanda Endpoint***
+----
+  Update BigPanda endpoint.
+
+* **URL**
+
+  https://api.logz.io/v1/endpoints/big-panda/{id}
+
+* **HTTP Method:**
+
+  `PUT`
+
+* **Request:**
+---
+| Parameter|Type|Description|
+|---|---|---|
+| id| int| Endpoint Id|
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| appKey| string| BigPanda app key|
+| apiToken| string| BigPanda api token|
+---
+
 * **Example**
 ```json
 {
@@ -959,32 +1001,9 @@ The number of queries executed is controlled and limited by Logz.io.
 **Content:** 
 ```json
 {
-  "id": 4
+  "id": 5
 }
 ```
-
-***Update PagerDuty Endpoint***
-----
-  Update PagerDuty endpoint.
-
-* **URL**
-
-  https://api.logz.io/v1/endpoints/pager-duty/{id}
-
-* **HTTP Method:**
-
-  `PUT`
-
-* **Request:**
----
-| Parameter|Type|Description|
-|---|---|---|
-| id| int||
-| title| string|| 
-| description| string||
-| appKey| string||
-| apiToken| string||
----
 
 * **Swagger Specification**
 ```json
@@ -1079,33 +1098,13 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title": "big-panda-example",
-  "description": "this is an example",
-  "apiToken": "ccc0d7a2ce50b365ffca653e80d52ceb",
-  "appKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 5
-}
-```
-
-***Create Datadog Endpoint***
+***Create DataDog Endpoint***
 ----
-  Create Datadog endpoint.
+  Create DataDog endpoint.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoints/datadog
+  https://api.logz.io/v1/endpoints/data-dog
 
 * **HTTP Method:**
 
@@ -1115,10 +1114,30 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| title| string|| 
-| description| string||
-| apiKey| string||
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| apiKey| string| DataDog api key|
 ---
+
+* **Example**
+```json
+{
+  "title": "datadog-example",
+  "description": "this is an example",
+  "apiKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
+
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 4
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -1203,33 +1222,13 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title": "datadog-example",
-  "description": "this is an example",
-  "apiKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
-
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 4
-}
-```
-
-***Update Datadog Endpoint***
+***Update DataDog Endpoint***
 ----
-  Update Datadog endpoint.
+  Update DataDog endpoint.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoints/datadog/{id}
+  https://api.logz.io/v1/endpoints/data-dog/{id}
 
 * **HTTP Method:**
 
@@ -1239,11 +1238,30 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| id| int||
-| title| string|| 
-| description| string||
-| apiKey| string||
+| id| int| Endpoint Id|
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| apiKey| string| Endpoint api key|
 ---
+
+* **Example**
+```json
+{
+  "title": "datadog-example",
+  "description": "this is an example",
+  "apiKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 5
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -1335,25 +1353,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title": "datadog-example",
-  "description": "this is an example",
-  "apiKey": "72ea2ed8ae331fbc80c7bdaffabc8f76"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 5
-}
-```
-
 ***Create VictorOps Endpoint***
 ----
   Create VictorOps endpoint.
@@ -1370,12 +1369,34 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| title| string|| 
-| description| string||
-| serviceApiKey| string||
-| routingKey| string||
-| messageType| string||
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| serviceApiKey| string| VictorOps service api key|
+| routingKey| string| VictorOps routing key|
+| messageType| string| VictorOps message type|
 ---
+
+* **Example**
+```json
+{
+  "title":"victor-ops-example",
+  "description":"This is an example",
+  "serviceApiKey":"12345678-1234-1234-1234-1234567890",
+  "messageType":"CRITICAL",
+  "routingKey":"route-key"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 4
+}
+```
+
 * **Swagger Specification**
 ```json
 {
@@ -1470,27 +1491,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "title":"victor-ops-example",
-  "description":"This is an example",
-  "serviceApiKey":"12345678-1234-1234-1234-1234567890",
-  "messageType":"CRITICAL",
-  "routingKey":"route-key"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 4
-}
-```
-
 ***Update VictorOps Endpoint***
 ----
   Update VictorOps endpoint.
@@ -1508,13 +1508,35 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| id| int|| 
-| title| string|| 
-| description| string||
-| serviceApiKey| string||
-| routingKey| string||
-| messageType| string||
+| id| int| Endpoint id| 
+| title| string| Endpoint name| 
+| description| string| Endpint description|
+| serviceApiKey| string| VictorOps service api key|
+| routingKey| string| VictorOps routing key|
+| messageType| string| VictorOps message type|
 ---
+
+* **Example**
+```json
+{
+  "id":5,
+  "title":"victor-ops-example",
+  "description":"This is an example",
+  "serviceApiKey":"12345678-1234-1234-1234-1234567890",
+  "messageType":"CRITICAL",
+  "routingKey":"route-key"
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 5
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -1617,28 +1639,6 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-* **Example**
-```json
-{
-  "id":5,
-  "title":"victor-ops-example",
-  "description":"This is an example",
-  "serviceApiKey":"12345678-1234-1234-1234-1234567890",
-  "messageType":"CRITICAL",
-  "routingKey":"route-key"
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 5
-}
-```
-
 ***Create Custom Endpoint***
 ----
   Create custom endpoint.
@@ -1655,13 +1655,39 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| title| string|| 
-| description| string||
-| url| string||
-| method| string| POST/GET/PUT|
+| title| string| Endpoint name| 
+| description| string| Endpoint description|
+| url| string| Endpoint URL|
+| method| string| POST/GET/PUT| 
 | headers| string|Request headers should be separated by comma|
-| bodyTemplate| string||
+| bodyTemplate| string| Body Template JSON|
 ---
+
+* **Example**
+```json
+{
+    "endpointType": "Custom",
+    "id": 4,
+    "title": "custom-example-endpoint",
+    "description": "This is an example endpoint",
+    "url": "http://www.custom.com",
+    "method": "POST",
+    "headers": "header=header-value",
+    "bodyTemplate": {
+      "alert_title": "{{alert_title}}"
+    }
+}
+```
+* **Success Response:**
+
+**Code:** 200 OK
+  
+**Content:** 
+```json
+{
+  "id": 4
+}
+```
 
 * **Swagger Specification**
 ```json
@@ -1758,6 +1784,31 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
+***Update Custom Endpoint***
+----
+  Update custom endpoint.
+
+* **URL**
+
+  https://api.logz.io/v1/endpoints/custom/{id}
+
+* **HTTP Method:**
+
+  `PUT`
+
+* **Request:**
+---
+| Parameter|Type|Description|
+|---|---|---|
+| id| int| Endpoint id| 
+| title| string| Endpoint name|   
+| description| string| Endpoint description|
+| url| string| Endpoint URL|
+| method| string| POST/GET/PUT|
+| headers| string|Request headers should be separated by comma|
+| bodyTemplate| string| Body template JSON|
+---
+
 * **Example**
 ```json
 {
@@ -1780,34 +1831,9 @@ The number of queries executed is controlled and limited by Logz.io.
 **Content:** 
 ```json
 {
-  "id": 4
+  "id": 5
 }
 ```
-
-***Update Custom Endpoint***
-----
-  Update custom endpoint.
-
-* **URL**
-
-  https://api.logz.io/v1/endpoints/custom/{id}
-
-* **HTTP Method:**
-
-  `PUT`
-
-* **Request:**
----
-| Parameter|Type|Description|
-|---|---|---|
-| id| int|| 
-| title| string|| 
-| description| string||
-| url| string||
-| method| string| POST/GET/PUT|
-| headers| string|Request headers should be separated by comma|
-| bodyTemplate| string||
----
 
 * **Swagger Specification**
 ```json
@@ -1908,31 +1934,5 @@ The number of queries executed is controlled and limited by Logz.io.
          }
         }
     }
-}
-```
-
-* **Example**
-```json
-{
-    "endpointType": "Custom",
-    "id": 4,
-    "title": "custom-example-endpoint",
-    "description": "This is an example endpoint",
-    "url": "http://www.custom.com",
-    "method": "POST",
-    "headers": "header=header-value",
-    "bodyTemplate": {
-      "alert_title": "{{alert_title}}"
-    }
-}
-```
-* **Success Response:**
-
-**Code:** 200 OK
-  
-**Content:** 
-```json
-{
-  "id": 5
 }
 ```
