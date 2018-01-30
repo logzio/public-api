@@ -39,13 +39,24 @@ $ curl -XPOST 'https://api.logz.io/v1/alerts'
   --header "X-API-TOKEN : your-api-access-token" 
   --header "Content-Type: application/json"
   -d '{
-        "severity": "LOW",
         "title": "Error level logs",
         "description": "Capture ERROR level logs in the given time range",
         "query_string": "loglevel:ERROR",
         "filter": "{\"bool\":{\"must\":[{\"match\":{\"type\":\"mytype\"}}],\"must_not\":[]}}",
         "operation": "GREATER_THAN",
-        "threshold": 1,
+        "severityThresholdTiers": [{
+        	    "severity": "HIGH",
+        	    "threshold": 2
+        	},
+        	{
+        	    "severity": "MEDIUM",
+       		    "threshold": 1
+        	},
+        	{
+        	    "severity": "LOW",
+       		    "threshold": 0
+        	}
+        ],
         "searchTimeFrameMinutes": 5,
         "notificationEmails": [
           "alerts@my.organization.com"
@@ -67,13 +78,11 @@ Sample response:
     "alertId": 63,
     "lastUpdatedBy": "myuser@my.organization.com",
     "lastUpdated": "2017-07-16'T'12:22:28.301'Z'",
-    "severity": "LOW",
     "title": "Error level logs",
     "description": "Capture ERROR level logs in the given time range",
     "query_string": "loglevel:ERROR",
     "filter": "{\"bool\":{\"must\":[{\"match\":{\"type\":\"mytype\"}}],\"must_not\":[]}}",
     "operation": "GREATER_THAN",
-    "threshold": 1,
     "searchTimeFrameMinutes": 5,
     "notificationEmails": [
       "me@my.organization.com"
@@ -85,6 +94,17 @@ Sample response:
     "groupByAggregationFields": [],
     "alertNotificationEndpoints": [
         0
+    ],
+    "severityThresholdTiers": [{
+    	    "severity": "HIGH",
+    	    "threshold": 2.0
+    	}, {
+    		"severity": "MEDIUM",
+    		"threshold": 1.0
+    	}, {
+    		"severity": "LOW",
+    		"threshold": 0.0
+    	}
     ]
 }
 ```
