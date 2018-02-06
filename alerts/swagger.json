@@ -137,10 +137,6 @@
 					"lastUpdatedBy": {
 						"type": "string"
 					},
-					"severity": {
-						"type": "string",
-						"enum": ["LOW", "MEDIUM", "HIGH"]
-					},
 					"title": {
 						"type": "string"
 					},
@@ -156,10 +152,6 @@
 					"operation": {
 						"type": "string",
 						"enum": ["LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUALS", "GREATER_THAN_OR_EQUALS", "EQUALS", "NOT_EQUALS"]
-					},
-					"threshold": {
-						"type": "number",
-						"format": "double"
 					},
 					"searchTimeFrameMinutes": {
 						"type": "integer",
@@ -197,6 +189,19 @@
 							"type": "integer",
 							"format": "int32"
 						}
+					},
+					"severityThresholdTiers": {
+						"type": "array",
+						"items": {
+							"severity": {
+								"type": "string",
+								"enum": [ "LOW", "MEDIUM", "HIGH"]
+							},
+							"threshold": {
+								"type": "number",
+								"format": "double"
+							}
+						}
 					}
 				}
 			},
@@ -204,10 +209,6 @@
 				"type": "object",
 				"required": ["notificationEmails", "query_string", "severity", "title"],
 				"properties": {
-					"severity": {
-						"type": "string",
-						"enum": ["LOW", "MEDIUM", "HIGH"]
-					},
 					"title": {
 						"type": "string"
 					},
@@ -223,10 +224,6 @@
 					"operation": {
 						"type": "string",
 						"enum": ["LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUALS", "GREATER_THAN_OR_EQUALS", "EQUALS", "NOT_EQUALS"]
-					},
-					"threshold": {
-						"type": "number",
-						"format": "double"
 					},
 					"searchTimeFrameMinutes": {
 						"type": "integer",
@@ -268,8 +265,20 @@
 							"type": "integer",
 							"format": "int32"
 						}
-					}
-				}
+					},
+					"severityThresholdTiers": {
+						"type": "array",
+						"items": {
+							"severity": {
+								"type": "string",
+								"enum": [ "LOW", "MEDIUM", "HIGH"]
+							},
+							"threshold": {
+								"type": "number",
+								"format": "double"
+							}
+
+						}
 			},
 			"NotificationEndpointResponse": {
 				"type": "object",
