@@ -1,7 +1,7 @@
-# Snapshotter API
+# Snapshots API
 
 ## General
-The Snapshotter API allows creating snapshots and get its status  
+The Snapshots API allows creating and sending snapshots to endpoints and email recipients 
 
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
@@ -18,7 +18,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 ***Create Snapshot***
 ----
-  Create snapshot.
+  Create snapshot
 
 * **URL**
 
@@ -34,8 +34,8 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | snapshotType| enum| DASHBOARD/VISUALIZATION| 
 | snapshotSavedObjectName| string| Name of the kibana saved object|
-| endpoints| array| Array of endpoints id's that the sanpshot will be sent to. Only Slack endpoints are supported|
-| emails| array| Array of emails that the sanpshot will be sent to|
+| endpoints| array| Array of endpoint ids that will recieve the snapshot. Only Slack endpoint is supported|
+| emails| array| Array of email recipients that will recieve the snapshot|
 | message| string| Message attached to the snapshot|
 | timeFrameFrom| string| Start time of the snapshot|
 | timeFrameTo| string| End time of the snapshot|
@@ -54,7 +54,7 @@ The number of queries executed is controlled and limited by Logz.io.
   "emails": [
     "example-mail@logz.io"
   ],
-  "message": "this is an example",
+  "message": "This is an example message",
   "timeFrameFrom": "2018-02-08T09:28:01.187Z",
   "timeFrameTo": "2018-02-08T09:43:01.188Z",
   "snapshotTimeZone": "Asia/Jerusalem",
@@ -196,13 +196,13 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-***Get Endpoint***
+***Get Snapshot ***
 ----
-  Return endpoint by id.
+  Return snapshot by id.
 
 * **URL**
 
-  https://api.logz.io/v1/endpoints/{id}
+  https://api.logz.io/v1/snapshotter/{id}
 
 * **HTTP Method:**
 
@@ -212,7 +212,7 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| snapshotId| int| snapshot Id|
+| snapshotId| int| Snapshot Id|
 ---
 
 * **Success Response:**
@@ -224,8 +224,8 @@ The number of queries executed is controlled and limited by Logz.io.
 | snapshotId| int| snapshot Id|
 | status| enum| "SUCCESS", "FAILED", "IN_PROGRESS"|
 | snapshotSavedObjectName| string| Name of the kibana saved object|
-| snapshotUrl| string| |
-| appLinkUrl| string| |
+| imageUrl| string|url to the snapshot image file |
+| appLinkUrl| string|url to the snapshot in the application |
 ---
   
 **Content:** 
@@ -234,7 +234,7 @@ The number of queries executed is controlled and limited by Logz.io.
   "snapshotId": 2,
   "status": "SUCCESS",
   "snapshotSavedObjectName": "example-visualization",
-  "snapshotUrl": "http://6f1a0d6a6baf:9000/#/dashboard/kibana?embed=true&snapshot_mode=true&&force_snapshot_timezone=Asia%2FJerusalem&_g=%28time%3A%28from%3A%272018-02-08T09%3A28%3A01.187Z%27%2Cmode%3Aabsoloute%2Cto%3A%272018-02-08T09%3A43%3A01.188Z%27%29%29&kibanaRoute=%2Fvisualize%2Fedit%2Fexample-visualization&theme=dark&shareToken=02b4d55f-1795-45b2-aa02-530ed54a27ac",
+  "imageUrl": "http://6f1a0d6a6baf:9000/#/dashboard/kibana?embed=true&snapshot_mode=true&&force_snapshot_timezone=Asia%2FJerusalem&_g=%28time%3A%28from%3A%272018-02-08T09%3A28%3A01.187Z%27%2Cmode%3Aabsoloute%2Cto%3A%272018-02-08T09%3A43%3A01.188Z%27%29%29&kibanaRoute=%2Fvisualize%2Fedit%2Fexample-visualization&theme=dark&shareToken=02b4d55f-1795-45b2-aa02-530ed54a27ac",
   "appLinkUrl": "http://6f1a0d6a6baf:9000/#/dashboard/kibana?&_g=%28time%3A%28from%3A%272018-02-08T09%3A28%3A01.187Z%27%2Cmode%3Aabsoloute%2Cto%3A%272018-02-08T09%3A43%3A01.188Z%27%29%29&kibanaRoute=%2Fvisualize%2Fedit%2Fexample-visualization&theme=dark?switchToAccountId=3"
 }
 ```
@@ -310,7 +310,7 @@ The number of queries executed is controlled and limited by Logz.io.
             "snapshotSavedObjectName": {
               "type": "string"
             },
-            "snapshotUrl": {
+            "imageUrl": {
               "type": "string"
             },
             "appLinkUrl": {
