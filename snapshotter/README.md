@@ -196,7 +196,7 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
-***Get Snapshot ***
+***Get Snapshot***
 ----
   Return snapshot by id.
 
@@ -224,8 +224,8 @@ The number of queries executed is controlled and limited by Logz.io.
 | snapshotId| int| snapshot Id|
 | status| enum| "SUCCESS", "FAILED", "IN_PROGRESS"|
 | snapshotSavedObjectName| string| Name of the kibana saved object|
-| imageUrl| string|url to the snapshot image file |
-| appLinkUrl| string|url to the snapshot in the application |
+| imageUrl| string|Snapshot image file URL |
+| appLinkUrl| string|Snapshot URL in the logz.io application|
 ---
   
 **Content:** 
