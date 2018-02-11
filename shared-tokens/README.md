@@ -36,7 +36,7 @@ The number of total shared tokens in account is limited by by Logz.io.
 ## Execute a create shared token call
 
 ```
-$ curl -XPOST 'https://api.logz.io/shared-tokens'
+$ curl -XPOST 'https://api.logz.io/v1/shared-tokens'
   --header "X-API-TOKEN : your-api-access-token"
   --header "Content-Type: application/json"
   -d '{
