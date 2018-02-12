@@ -1,0 +1,334 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Services"
+  },
+  "paths": {
+    "/shared-tokens/filters": {
+      "get": {
+        "operationId": "getAllFilters",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/definitions/QueryFilter"
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "operationId": "createFilter",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/QueryFilter"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/QueryFilter"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/shared-tokens/{id}": {
+      "get": {
+        "operationId": "getToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SharedToken"
+            },
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "operationId": "updateToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UpdateSharedTokenRequest"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SharedToken"
+            },
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/shared-tokens": {
+      "get": {
+        "operationId": "getAllTokens",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/definitions/SharedToken"
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "operationId": "createToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/CreateSharedTokenRequest"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SharedToken"
+            },
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+        "QueryFilter": {
+      "type": "object",
+      "required": [
+        "field",
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "field": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_@.-]+$"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_@.-]+$"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "SharedToken": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "CreateSharedTokenRequest": {
+      "type": "object",
+      "properties": {
+        "tokenName": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "UpdateSharedTokenRequest": {
+      "type": "object",
+      "required": [
+        "filters"
+      ],
+      "properties": {
+        "filters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
