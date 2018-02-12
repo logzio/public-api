@@ -226,6 +226,10 @@ The number of queries executed is controlled and limited by Logz.io.
 | snapshotSavedObjectName| string| Name of the kibana saved object|
 | imageUrl| string|Snapshot image file URL |
 | appLinkUrl| string|Snapshot URL in the logz.io application|
+| message| string| Message attached to the snapshot|
+| timeFrameFrom| string| Start time of the snapshot in epoch format|
+| timeFrameTo| string| End time of the snapshot in epoch format|
+| snapshotTimeZone| string| TimeZone of the snapshot|
 ---
   
 **Content:** 
@@ -235,7 +239,11 @@ The number of queries executed is controlled and limited by Logz.io.
   "status": "SUCCESS",
   "snapshotSavedObjectName": "example-visualization",
   "imageUrl": "http://6f1a0d6a6baf:9000/#/dashboard/kibana?embed=true&snapshot_mode=true&&force_snapshot_timezone=Asia%2FJerusalem&_g=%28time%3A%28from%3A%272018-02-08T09%3A28%3A01.187Z%27%2Cmode%3Aabsoloute%2Cto%3A%272018-02-08T09%3A43%3A01.188Z%27%29%29&kibanaRoute=%2Fvisualize%2Fedit%2Fexample-visualization&theme=dark&shareToken=02b4d55f-1795-45b2-aa02-530ed54a27ac",
-  "appLinkUrl": "http://6f1a0d6a6baf:9000/#/dashboard/kibana?&_g=%28time%3A%28from%3A%272018-02-08T09%3A28%3A01.187Z%27%2Cmode%3Aabsoloute%2Cto%3A%272018-02-08T09%3A43%3A01.188Z%27%29%29&kibanaRoute=%2Fvisualize%2Fedit%2Fexample-visualization&theme=dark?switchToAccountId=3"
+  "appLinkUrl": "http://6f1a0d6a6baf:9000/#/dashboard/kibana?&_g=%28time%3A%28from%3A%272018-02-08T09%3A28%3A01.187Z%27%2Cmode%3Aabsoloute%2Cto%3A%272018-02-08T09%3A43%3A01.188Z%27%29%29&kibanaRoute=%2Fvisualize%2Fedit%2Fexample-visualization&theme=dark?switchToAccountId=3",
+  "message": "This is an example message",
+  "timeFrameFrom": 1518082081,
+  "timeFrameTo": 1518082981,
+  "snapshotTimeZone": "Asia/Jerusalem"
 }
 ```
 
@@ -314,6 +322,20 @@ The number of queries executed is controlled and limited by Logz.io.
               "type": "string"
             },
             "appLinkUrl": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "timeFrameFrom": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "timeFrameTo": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "snapshotTimeZone": {
               "type": "string"
             }
           }
