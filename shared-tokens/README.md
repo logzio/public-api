@@ -3,7 +3,7 @@
 ## General
 The Shared Tokens API allows creating, updating, reading and deleting tokens that can be used to share dashboards and snapshots. It also enables creating, deleting and reading token filters used to filter queries executed when using tokens
 
-## License
+## License & Permissions
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
 
 In addition, using the Shared Tokens API requires using a an API token with a dedicated permission. To receive such a permission, please reach out to Logz.io support.
