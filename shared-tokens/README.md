@@ -6,7 +6,7 @@ The Shared Tokens API allows creating, updating, reading and deleting tokens tha
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
 
-In addition, using the Shared Tokens API requires special license from logz.io.
+In addition, using the Shared Tokens API requires using a an API token with a dedicated permission. To receive such a permission, please reach out to Logz.io support.
 
 ## Limitations
 The number of simultaneous api calls is controlled and limited by Logz.io.
