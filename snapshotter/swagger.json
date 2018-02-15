@@ -1,0 +1,193 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Services"
+  },
+  "paths": {
+    "/snapshotter": {
+      "post": {
+        "tags": [
+          "Snapshotter"
+        ],
+        "summary": "Create snapshot",
+        "description": "",
+        "operationId": "createSnapshot",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCreateRequest"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SnapshotCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/snapshotter/{snapshotId}": {
+      "get": {
+        "tags": [
+          "Snapshotter"
+        ],
+        "summary": "Get snapshot detail by id",
+        "description": "",
+        "operationId": "getSnapshot",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SnapshotGetResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SnapshotCreateResponse": {
+      "type": "object",
+      "properties": {
+        "snapshotId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "SnapshotCreateRequest": {
+      "type": "object",
+      "required": [
+        "snapshotTimeZone",
+        "snapshotType",
+        "timeFrameFrom",
+        "timeFrameTo"
+      ],
+      "properties": {
+        "snapshotType": {
+          "type": "string",
+          "enum": [
+            "DASHBOARD",
+            "VISUALIZATION",
+            "SAVED_SEARCH"
+          ]
+        },
+        "snapshotSavedObjectName": {
+          "type": "string"
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "string"
+        },
+        "timeFrameFrom": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timeFrameTo": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "snapshotTimeZone": {
+          "type": "string"
+        },
+        "darkTheme": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SnapshotGetResponse": {
+      "type": "object",
+      "properties": {
+        "snapshotId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "FAILED",
+            "IN_PROGRESS"
+          ]
+        },
+        "snapshotSavedObjectName": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "appLinkUrl": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "timeFrameFrom": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timeFrameTo": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "snapshotTimeZone": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
