@@ -82,13 +82,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -193,13 +186,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -307,13 +293,6 @@ The number of queries executed is controlled and limited by Logz.io.
                 "description": "Authentication Api Token",
                 "required": false,
                 "type": "string"
-              },
-              {
-                "name": "X-AUTH-TOKEN",
-                "in": "header",
-                "description": "Authentication User Session",
-                "required": false,
-                "type": "string"
               }
             ],
             "responses": {
@@ -402,13 +381,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -535,13 +507,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -656,13 +621,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -789,13 +747,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -912,13 +863,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -1050,13 +994,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1175,13 +1112,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -1308,13 +1238,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1433,13 +1356,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -1583,13 +1499,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1725,13 +1634,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "name": "X-API-TOKEN",
             "in": "header",
             "description": "Authentication Api Token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
             "required": false,
             "type": "string"
           }
@@ -1880,13 +1782,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "description": "Authentication Api Token",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "X-AUTH-TOKEN",
-            "in": "header",
-            "description": "Authentication User Session",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1936,3 +1831,6 @@ The number of queries executed is controlled and limited by Logz.io.
     }
 }
 ```
+
+### API specification in Swagger format
+[JSON file here](swagger.json)

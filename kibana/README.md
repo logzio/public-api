@@ -38,60 +38,72 @@ The number of queries executed is controlled and limited by Logz.io.
 * **Swagger Specification**
 ```json
 {
-  "/kibana/export": {
-    "post": {
-      "consumes": [],
-      "produces": [
-        "application/json"
-      ],
-      "parameters": [
-        {
-          "name": "body",
-          "in": "body",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/KibanaExportRequest"
+  "paths": {
+    "/kibana/export": {
+        "post": {
+          "tags": [
+            "Kibana"
+          ],
+          "summary": "Kibana export",
+          "description": "",
+          "operationId": "exportSavedObjects",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/KibanaExportRequest"
+              }
+            },
+            {
+              "name": "X-API-TOKEN",
+              "in": "header",
+              "description": "Authentication Api Token",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/KibanaExportResponse"
+              }
+            }
+          }
+      }
+   },
+  "definitions" : {
+      "KibanaExportRequest": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "dashboard",
+              "search",
+              "visualization"
+            ]
           }
         }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK",
-          "headers": {},
-          "schema": {
-            "$ref": "#/definitions/KibanaExportResponse"
+      }
+    },
+      "KibanaExportResponse": {
+        "properties": {
+          "hits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Object"
+            }
+          },
+          "kibanaVersion": {
+            "type": "string"
           }
         }
-      },
-      "tags": [
-        "export"
-      ]
-    }
-  },
-  "KibanaExportRequest": {
-    "properties": {
-      "type": {
-        "type": "string",
-        "enum": [
-          "dashboard",
-          "search",
-          "visualization"
-        ]
       }
-    }
-  },
-  "KibanaExportResponse": {
-    "properties": {
-      "hits": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/Object"
-        }
-      },
-      "kibanaVersion": {
-        "type": "string"
-      }
-    }
   }
 }
 ```
@@ -219,79 +231,91 @@ The number of queries executed is controlled and limited by Logz.io.
 * **Swagger Specfication**
 ```json
 {
-  "/kibana/import": {
-    "post": {
-      "consumes": [],
-      "produces": [
-        "application/json"
-      ],
-      "parameters": [
-        {
-          "name": "body",
-          "in": "body",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/KibanaImportRequest"
+  "paths": {
+      "/kibana/import": {
+        "post": {
+          "tags": [
+            "Kibana"
+          ],
+          "summary": "Kibana import",
+          "description": "",
+          "operationId": "importSavedObjects",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/KibanaImportRequest"
+              }
+            },
+            {
+              "name": "X-API-TOKEN",
+              "in": "header",
+              "description": "Authentication Api Token",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/KibanaImportResponse"
+              }
+            }
           }
         }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK",
-          "headers": {},
-          "schema": {
-            "$ref": "#/definitions/KibanaImportResponse"
+      }
+  },
+  "definitions" :{
+      "KibanaImportRequest": {
+        "properties": {
+          "hits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Map"
+            }
+          },
+          "kibanaVersion": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
           }
         }
       },
-      "tags": [
-        "import"
-      ]
-    }
-  },
-  "KibanaImportRequest": {
-    "properties": {
-      "hits": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/Map"
-        }
-      },
-      "kibanaVersion": {
-        "type": "string"
-      },
-      "override": {
-        "type": "boolean"
-      }
-    }
-  },
-  "KibanaImportResponse": {
-    "properties": {
-      "created": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "failed": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "ignored": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "updated": {
-        "type": "array",
-        "items": {
-          "type": "string"
+      "KibanaImportResponse": {
+        "properties": {
+          "created": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "failed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ignored": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "updated": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
-    }
   }
 }
 ```
@@ -322,3 +346,5 @@ The number of queries executed is controlled and limited by Logz.io.
 }
 ```
 
+### API specification in Swagger format
+[JSON file here](swagger.json)
