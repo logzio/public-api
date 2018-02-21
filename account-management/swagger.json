@@ -1,0 +1,396 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1",
+    "title" : "Services",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/account-management/time-based-accounts" : {
+      "get" : {
+        "operationId" : "getAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TimeBasedAccount"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createTimeBasedAccount",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/TimeBasedAccountUpsertRequest"
+          }
+        }, {
+          "name" : "x-forwarded-for",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/TimeBasedAccountCreationResponse"
+            }
+          }
+        }
+      }
+    },
+    "/account-management/time-based-accounts/detailed" : {
+      "get" : {
+        "operationId" : "getAllDetailedTimeBasedAccount",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/DetailedTimeBasedAccount"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/account-management/time-based-accounts/detailed/{id}" : {
+      "get" : {
+        "operationId" : "getDetailedTimeBasedAccount",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/DetailedTimeBasedAccount"
+            }
+          }
+        }
+      }
+    },
+    "/account-management/time-based-accounts/{id}" : {
+      "get" : {
+        "operationId" : "get",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/TimeBasedAccount"
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateTimeBasedAccount",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/TimeBasedAccountUpsertRequest"
+          }
+        }, {
+          "name" : "x-forwarded-for",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteTimeBasedAccount",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "x-forwarded-for",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AccountUtilizationSettings" : {
+      "type" : "object",
+      "properties" : {
+        "frequencyMinutes" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "utilizationEnabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "AccountView" : {
+      "type" : "object",
+      "properties" : {
+        "accountId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "accountName" : {
+          "type" : "string"
+        },
+        "accountToken" : {
+          "type" : "string"
+        },
+        "active" : {
+          "type" : "boolean"
+        },
+        "esIndexPrefix" : {
+          "type" : "string"
+        },
+        "maxDailyGB" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "retentionDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "DailyUsagesList" : {
+      "type" : "object",
+      "properties" : {
+        "usage" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LHDailyCount"
+          }
+        }
+      }
+    },
+    "DetailedTimeBasedAccount" : {
+      "type" : "object",
+      "properties" : {
+        "subAccountRelation" : {
+          "$ref" : "#/definitions/SubAccountRelation"
+        },
+        "account" : {
+          "$ref" : "#/definitions/AccountView"
+        },
+        "sharingObjectsAccounts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AccountView"
+          }
+        },
+        "utilizationSettings" : {
+          "$ref" : "#/definitions/AccountUtilizationSettings"
+        },
+        "dailyUsagesList" : {
+          "$ref" : "#/definitions/DailyUsagesList"
+        },
+        "docSizeSetting" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "LHDailyCount" : {
+      "type" : "object",
+      "properties" : {
+        "date" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "bytes" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "SharingAccount" : {
+      "type" : "object",
+      "properties" : {
+        "accountId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "accountName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SubAccountRelation" : {
+      "type" : "object",
+      "properties" : {
+        "ownerAccountId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "subAccountId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "searchable" : {
+          "type" : "boolean"
+        },
+        "accessible" : {
+          "type" : "boolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastUpdatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastUpdaterUserId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "OWNER_ACCOUNT", "SUB_ACCOUNT", "TIMELESS_INDEX", "ALL" ]
+        }
+      }
+    },
+    "TimeBasedAccount" : {
+      "type" : "object",
+      "properties" : {
+        "accountId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "accountName" : {
+          "type" : "string"
+        },
+        "accountToken" : {
+          "type" : "string"
+        },
+        "maxDailyGB" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "retentionDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "searchable" : {
+          "type" : "boolean"
+        },
+        "accessible" : {
+          "type" : "boolean"
+        },
+        "docSizeSetting" : {
+          "type" : "boolean"
+        },
+        "sharingObjectsAccounts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SharingAccount"
+          }
+        },
+        "utilizationSettings" : {
+          "$ref" : "#/definitions/AccountUtilizationSettings"
+        }
+      }
+    },
+    "TimeBasedAccountCreationResponse" : {
+      "type" : "object",
+      "properties" : {
+        "accountId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "accountToken" : {
+          "type" : "string"
+        }
+      }
+    },
+    "TimeBasedAccountUpsertRequest" : {
+      "type" : "object",
+      "required" : [ "sharingObjectsAccounts" ],
+      "properties" : {
+        "email" : {
+          "type" : "string",
+          "pattern" : "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
+        },
+        "accountName" : {
+          "type" : "string"
+        },
+        "maxDailyGB" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "retentionDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "searchable" : {
+          "type" : "boolean"
+        },
+        "accessible" : {
+          "type" : "boolean"
+        },
+        "sharingObjectsAccounts" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        },
+        "docSizeSetting" : {
+          "type" : "boolean"
+        },
+        "utilizationSettings" : {
+          "$ref" : "#/definitions/AccountUtilizationSettings"
+        }
+      }
+    }
+  }
+}

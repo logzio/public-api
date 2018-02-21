@@ -143,7 +143,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 | id| int| Endpoint Id|
----
+|---|---|---|
 
 * **Success Response:**
 
@@ -246,7 +246,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 | id| int| Endpoint Id|
----
+|---|---|---|
 
 * **Success Response:**
 
@@ -324,7 +324,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
 | url| string| Slack URL|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -441,7 +441,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
 | url| string| Slack URL|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -564,7 +564,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | title| string| Endpoint Name| 
 | description| string| Endpoint description|
 | serviceKey| string| PagerDuty service key|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -681,7 +681,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | title| string| Endpoint name|  
 | description| string| Endpoint description|
 | serviceKey| string| PagerDuty service key|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -805,7 +805,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | description| string| Endpoint description|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -927,7 +927,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | description| string| Endpoint description|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -1054,7 +1054,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
 | apiKey| string| DataDog api key|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -1172,7 +1172,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
 | apiKey| string| Endpoint api key|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -1297,7 +1297,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -1430,7 +1430,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -1570,7 +1570,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | method| string| POST/GET/PUT| 
 | headers| string|Request headers should be separated by comma|
 | bodyTemplate| string| Body Template JSON|
----
+|---|---|---|
 
 * **Example**
 ```json
@@ -1709,7 +1709,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | method| string| POST/GET/PUT|
 | headers| string|Request headers should be separated by comma|
 | bodyTemplate| string| Body template JSON|
----
+|---|---|---|
 
 * **Example**
 ```json
