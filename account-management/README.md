@@ -41,7 +41,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |sharingObjectsAccounts|array|Ids of all the accounts that can access the account data|
 |docSizeSetting|boolean|Is doc size will be attached to logs|
 |utilizationSettings|object||
-|---|---|---|
 
 
 * **Example**
@@ -72,7 +71,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 |accountId|int|The account id|
 |accountToken|string|The generated token|
-|---|---|---|
+---
 
 **Content:** 
 ```json
@@ -188,7 +187,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 |id|int|Account Id|
-|---|---|---|
+---
 
 * **Success Response:**
 
@@ -206,7 +205,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |docSizeSetting|boolean|Is doc size will be attached to logs|
 |sharingObjectsAccounts|array|Ids of all the accounts that can access the account data|
 |utilizationSettings|object| |
-|---|---|---|
+---
   
 **Content:** 
 ```json
@@ -339,7 +338,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |sharingObjectsAccounts|array|Ids of all the accounts that can access the account data|
 |docSizeSetting|boolean|Is doc size will be attached to logs|
 |utilizationSettings|object||
-|---|---|---|
+---
 
 * **Example**
 ```json
@@ -481,7 +480,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 |id|int|Account Id|
-|---|---|---|
+---
 
 * **Success Response:**
 
