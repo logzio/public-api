@@ -114,7 +114,7 @@
             "SAVED_SEARCH"
           ]
         },
-        "snapshotSavedObjectName": {
+        "snapshotSavedObjectId": {
           "type": "string"
         },
         "endpoints": {
@@ -144,6 +144,9 @@
         "snapshotTimeZone": {
           "type": "string"
         },
+        "queryString" : {
+          "type" : "string"
+        },
         "darkTheme": {
           "type": "boolean"
         }
@@ -164,7 +167,7 @@
             "IN_PROGRESS"
           ]
         },
-        "snapshotSavedObjectName": {
+        "snapshotSavedObjectId": {
           "type": "string"
         },
         "imageUrl": {
