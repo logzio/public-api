@@ -1,0 +1,388 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Services"
+  },
+  "paths": {
+    "/user-management/{id}": {
+      "get": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "Get user",
+        "description": "",
+        "operationId": "getUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "Update user",
+        "description": "",
+        "operationId": "updateUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UserManagementUpsertRequest"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/UserManagementUpsertResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "Delete user",
+        "description": "",
+        "operationId": "deleteUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/user-management/unsuspend/{id}": {
+      "post": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "Unsuspend user",
+        "description": "",
+        "operationId": "unsuspendUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/user-management/suspend/{id}": {
+      "post": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "Suspend user",
+        "description": "",
+        "operationId": "suspendUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/user-management": {
+      "get": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "List users",
+        "description": "",
+        "operationId": "listUsers",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User Management"
+        ],
+        "summary": "Create user",
+        "description": "",
+        "operationId": "createUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-forwarded-for",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UserManagementUpsertRequest"
+            }
+          },
+          {
+            "name": "X-API-TOKEN",
+            "in": "header",
+            "description": "Authentication Api Token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/UserManagementUpsertResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "accountID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserManagementUpsertResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "UserManagementUpsertRequest": {
+      "type": "object",
+      "required": [
+        "fullName",
+        "username"
+      ],
+      "properties": {
+        "username": {
+          "type": "string",
+          "pattern": "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "accountID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
