@@ -45,7 +45,7 @@ The number of queries executed is controlled and limited by Logz.io.
     "fullName": "example",
     "accountID": 4,
     "roles": [
-      1
+      3
     ],
     "active": true
   }
@@ -152,7 +152,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | username| string| username in an email format|
 | fullname| string| |
 | accountId| int| The account id the user will be attached to |
-| roles| array| Array of roles id |
+| roles| array| Array of role ids (use 2 for regular user and 3 for account admin)|
 ---
 
 * **Example**
@@ -162,7 +162,7 @@ The number of queries executed is controlled and limited by Logz.io.
   "fullName": "example",
   "accountID": 4,
   "roles": [
-    1
+    3
   ]
 }
 ```
@@ -386,7 +386,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | username| string| username in an email format|
 | fullname| string| |
 | accountId| int| The account id the user will be attached to |
-| roles| array| Array of roles id |
+| roles| array| Array of role ids (use 2 for regular user and 3 for account admin)|
 ---
 
 * **Example**
@@ -396,7 +396,7 @@ The number of queries executed is controlled and limited by Logz.io.
   "fullName": "example",
   "accountID": 4,
   "roles": [
-    1
+    3
   ]
 }
 ```
