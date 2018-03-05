@@ -32,16 +32,16 @@ The number of queries executed is controlled and limited by Logz.io.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-|email|string|The account id in email format|
+|email|string|The account admin email address|
 |accountName|string|The account name|
 |maxDailyGB|float|The maximum daily usage in GB|
 |retentionDays|int|The retention in days|
 |searchable|boolean|Is the account searchable|
 |accessible|boolean|Is the account accessible|
 |sharingObjectsAccounts|array|Ids of all the accounts that can access the account data|
-|docSizeSetting|boolean|Is doc size will be attached to logs|
-|utilizationSettings|object||
-
+|docSizeSetting|boolean|Is document size attached to logs|
+|utilizationSettings.utilizationEnabled|boolean|Are utilization metrics written to the logs|
+|utilizationSettings.frequencyMinutes|int|How often, in minutes, utilization metrics are written to logs|
 
 * **Example**
 ```json
@@ -70,7 +70,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 |accountId|int|The account id|
-|accountToken|string|The generated token|
+|accountToken|string|The account token to be used for log shipping|
 ---
 
 **Content:** 
@@ -197,14 +197,15 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 |accountId|int|The account id|
 |accountName|string|The account name|
-|accountToken|string|The token of the account|
+|accountToken|string|The account token to be used for log shipping|
 |maxDailyGB|float|The maximum daily usage in GB|
 |retentionDays|int|The retention in days|
 |searchable|boolean|Is the account searchable|
 |accessible|boolean|Is the account accessible|
-|docSizeSetting|boolean|Is doc size will be attached to logs|
+|docSizeSetting|boolean|Is document size attached to logs|
 |sharingObjectsAccounts|array|Ids of all the accounts that can access the account data|
-|utilizationSettings|object| |
+|utilizationSettings.utilizationEnabled|boolean|Are utilization metrics written to the logs|
+|utilizationSettings.frequencyMinutes|int|How often, in minutes, utilization metrics are written to logs|
 ---
   
 **Content:** 
@@ -329,15 +330,16 @@ The number of queries executed is controlled and limited by Logz.io.
 | Parameter|Type|Description|
 |---|---|---|
 |id|int|The account id|
-|email|string|The account email|
+|email|string|The account admin email address|
 |accountName|string|The account name|
 |maxDailyGB|float|The maximum daily usage in GB|
 |retentionDays|int|The retention in days|
 |searchable|boolean|Is the account searchable|
 |accessible|boolean|Is the account accessible|
 |sharingObjectsAccounts|array|Ids of all the accounts that can access the account data|
-|docSizeSetting|boolean|Is doc size will be attached to logs|
-|utilizationSettings|object||
+|docSizeSetting|boolean|Is document size attached to logs|
+|utilizationSettings.utilizationEnabled|boolean|Are utilization metrics written to the logs|
+|utilizationSettings.frequencyMinutes|int|How often, in minutes, utilization metrics are written to logs|
 ---
 
 * **Example**
@@ -469,7 +471,7 @@ The number of queries executed is controlled and limited by Logz.io.
 
 * **URL**
 
-  https://api.logz.io/v1/account-management/time-based-accounts/{id
+  https://api.logz.io/v1/account-management/time-based-accounts/{id}
 
 * **HTTP Method:**
 
