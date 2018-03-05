@@ -31,8 +31,8 @@ The number of queries executed is controlled and limited by Logz.io.
 * **Request:**
 ---
 | Parameter|Type|Description|
-|---|---|---|
 ---
+
 * **Success Response:**
 
 **Code:** 200 OK
