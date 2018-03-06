@@ -323,6 +323,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | url| string| Slack URL|
 ---
 
@@ -401,6 +402,10 @@ The number of queries executed is controlled and limited by Logz.io.
          "title": {
            "type": "string"
          },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
          "description": {
            "type": "string"
          },
@@ -440,6 +445,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint ID|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | url| string| Slack URL|
 ---
 
@@ -525,6 +531,10 @@ The number of queries executed is controlled and limited by Logz.io.
          "title": {
            "type": "string"
          },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
          "description": {
            "type": "string"
          },
@@ -563,6 +573,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint Name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | serviceKey| string| PagerDuty service key|
 ---
 
@@ -644,6 +655,10 @@ The number of queries executed is controlled and limited by Logz.io.
          "description": {
            "type": "string"
          },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
          "serviceKey": {
            "type": "string"
          }
@@ -680,6 +695,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name|  
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | serviceKey| string| PagerDuty service key|
 ---
 
@@ -765,6 +781,10 @@ The number of queries executed is controlled and limited by Logz.io.
          "title": {
            "type": "string"
          },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
          "description": {
            "type": "string"
          },
@@ -803,6 +823,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
 ---
@@ -886,6 +907,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "apiToken": {
           "type": "string"
         },
@@ -925,6 +950,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
 ---
@@ -1015,6 +1041,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "apiToken": {
           "type": "string"
         },
@@ -1053,6 +1083,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | apiKey| string| DataDog api key|
 ---
 
@@ -1135,6 +1166,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "apiKey": {
           "type": "string"
         }
@@ -1171,6 +1206,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | apiKey| string| Endpoint api key|
 ---
 
@@ -1259,6 +1295,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "apiKey": {
           "type": "string"
         }
@@ -1294,6 +1334,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
@@ -1384,6 +1425,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "routingKey": {
           "type": "string"
         },
@@ -1427,6 +1472,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint id| 
 | title| string| Endpoint name| 
 | description| string| Endpint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
@@ -1525,6 +1571,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "routingKey": {
           "type": "string"
         },
@@ -1566,6 +1616,7 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | url| string| Endpoint URL|
 | method| string| POST/GET/PUT| 
 | headers| string|Request headers should be separated by comma|
@@ -1657,6 +1708,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "url": {
           "type": "string"
         },
@@ -1705,6 +1760,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint id| 
 | title| string| Endpoint name|   
 | description| string| Endpoint description|
+| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | url| string| Endpoint URL|
 | method| string| POST/GET/PUT|
 | headers| string|Request headers should be separated by comma|
@@ -1803,6 +1859,10 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
+          "test" : {
+            "type" : "boolean",
+            "default": false
+         },
         "url": {
           "type": "string"
         },

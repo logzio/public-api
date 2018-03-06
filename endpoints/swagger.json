@@ -631,6 +631,10 @@
         "description": {
           "type": "string"
         },
+        "test" : {
+          "type" : "boolean",
+          "default": false
+        },
         "url": {
           "type": "string"
         }
@@ -644,6 +648,10 @@
         },
         "description": {
           "type": "string"
+        },
+        "test" : {
+          "type" : "boolean",
+          "default": false
         },
         "url": {
           "type": "string"
@@ -671,6 +679,10 @@
         "description": {
           "type": "string"
         },
+        "test" : {
+          "type" : "boolean",
+          "default": false
+        },
         "serviceKey": {
           "type": "string"
         }
@@ -684,6 +696,10 @@
         },
         "description": {
           "type": "string"
+        },
+        "test" : {
+          "type" : "boolean",
+          "default": false
         },
         "apiToken": {
           "type": "string"
@@ -701,6 +717,10 @@
         },
         "description": {
           "type": "string"
+        },
+        "test" : {
+          "type" : "boolean",
+          "default": false
         },
         "apiKey": {
           "type": "string"
@@ -720,6 +740,10 @@
         },
         "description": {
           "type": "string"
+        },
+        "test" : {
+          "type" : "boolean",
+          "default": false
         },
         "routingKey": {
           "type": "string"
