@@ -1,7 +1,8 @@
 # Endpoints API
 
 ## General
-The Endpoints API allows creating, updating, reading and deleting of endpoints  
+The Endpoints API allows creating, updating, reading and deleting of endpoints.
+In each one of the create/update API's using an additional test=true URL parameter can be used to test the endpoint without actually create/update it 
 
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
@@ -323,7 +324,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | url| string| Slack URL|
 ---
 
@@ -371,6 +371,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -401,10 +408,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "properties": {
          "title": {
            "type": "string"
-         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
          },
          "description": {
            "type": "string"
@@ -445,7 +448,6 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint ID|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | url| string| Slack URL|
 ---
 
@@ -500,6 +502,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -530,10 +539,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "properties": {
          "title": {
            "type": "string"
-         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
          },
          "description": {
            "type": "string"
@@ -573,7 +578,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint Name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | serviceKey| string| PagerDuty service key|
 ---
 
@@ -621,6 +625,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -654,10 +665,6 @@ The number of queries executed is controlled and limited by Logz.io.
          },
          "description": {
            "type": "string"
-         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
          },
          "serviceKey": {
            "type": "string"
@@ -695,7 +702,6 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name|  
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | serviceKey| string| PagerDuty service key|
 ---
 
@@ -750,6 +756,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -780,10 +793,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "properties": {
          "title": {
            "type": "string"
-         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
          },
          "description": {
            "type": "string"
@@ -823,7 +832,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
 ---
@@ -873,6 +881,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -907,10 +922,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "apiToken": {
           "type": "string"
         },
@@ -950,7 +961,6 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
 ---
@@ -1007,6 +1017,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1041,10 +1058,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "apiToken": {
           "type": "string"
         },
@@ -1083,7 +1096,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | apiKey| string| DataDog api key|
 ---
 
@@ -1132,6 +1144,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1166,10 +1185,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "apiKey": {
           "type": "string"
         }
@@ -1206,7 +1221,6 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | apiKey| string| Endpoint api key|
 ---
 
@@ -1261,6 +1275,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1295,10 +1316,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "apiKey": {
           "type": "string"
         }
@@ -1334,7 +1351,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
@@ -1386,6 +1402,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1425,10 +1448,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "routingKey": {
           "type": "string"
         },
@@ -1472,7 +1491,6 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint id| 
 | title| string| Endpoint name| 
 | description| string| Endpint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
@@ -1532,6 +1550,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1571,10 +1596,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "routingKey": {
           "type": "string"
         },
@@ -1616,7 +1637,6 @@ The number of queries executed is controlled and limited by Logz.io.
 |---|---|---|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
 | url| string| Endpoint URL|
 | method| string| POST/GET/PUT| 
 | headers| string|Request headers should be separated by comma|
@@ -1674,6 +1694,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1708,10 +1735,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "url": {
           "type": "string"
         },
@@ -1760,7 +1783,6 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint id| 
 | title| string| Endpoint name|   
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | url| string| Endpoint URL|
 | method| string| POST/GET/PUT|
 | headers| string|Request headers should be separated by comma|
@@ -1825,6 +1847,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1859,10 +1888,6 @@ The number of queries executed is controlled and limited by Logz.io.
         "description": {
           "type": "string"
         },
-          "test" : {
-            "type" : "boolean",
-            "default": false
-         },
         "url": {
           "type": "string"
         },
