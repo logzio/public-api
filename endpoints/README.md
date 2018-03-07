@@ -445,7 +445,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint ID|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
+| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | url| string| Slack URL|
 ---
 
@@ -695,7 +695,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name|  
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
+| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | serviceKey| string| PagerDuty service key|
 ---
 
@@ -950,7 +950,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
+| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | appKey| string| BigPanda app key|
 | apiToken| string| BigPanda api token|
 ---
@@ -1206,7 +1206,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint Id|
 | title| string| Endpoint name| 
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
+| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | apiKey| string| Endpoint api key|
 ---
 
@@ -1472,7 +1472,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint id| 
 | title| string| Endpoint name| 
 | description| string| Endpint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
+| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | serviceApiKey| string| VictorOps service api key|
 | routingKey| string| VictorOps routing key|
 | messageType| string| VictorOps message type|
@@ -1760,7 +1760,7 @@ The number of queries executed is controlled and limited by Logz.io.
 | id| int| Endpoint id| 
 | title| string| Endpoint name|   
 | description| string| Endpoint description|
-| test| boolean| When true a test message will be sent and the endpoint will not be created|
+| test| boolean| When true a test message will be sent and the endpoint will not be updated|
 | url| string| Endpoint URL|
 | method| string| POST/GET/PUT|
 | headers| string|Request headers should be separated by comma|
