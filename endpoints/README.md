@@ -1,7 +1,8 @@
 # Endpoints API
 
 ## General
-The Endpoints API allows creating, updating, reading and deleting of endpoints  
+The Endpoints API allows creating, updating, reading and deleting of endpoints.
+In each one of the create/update API's using an additional test=true URL parameter can be used to test the endpoint without actually create/update it 
 
 ## License
 Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
@@ -370,6 +371,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -494,6 +502,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -608,6 +623,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "in": "header",
             "required": false,
             "type": "string"
+          },
+          {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
           },
           {
             "in": "body",
@@ -734,6 +756,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -850,6 +879,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "in": "header",
             "required": false,
             "type": "string"
+          },
+          {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
           },
           {
             "in": "body",
@@ -981,6 +1017,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1099,6 +1142,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "in": "header",
             "required": false,
             "type": "string"
+          },
+          {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
           },
           {
             "in": "body",
@@ -1225,6 +1275,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1343,6 +1400,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "in": "header",
             "required": false,
             "type": "string"
+          },
+          {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
           },
           {
             "in": "body",
@@ -1486,6 +1550,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "type": "string"
           },
           {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
+          },
+          {
             "in": "body",
             "name": "body",
             "required": false,
@@ -1621,6 +1692,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "in": "header",
             "required": false,
             "type": "string"
+          },
+          {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
           },
           {
             "in": "body",
@@ -1767,6 +1845,13 @@ The number of queries executed is controlled and limited by Logz.io.
             "required": true,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name" : "test",
+            "in" : "query",
+            "required" : false,
+            "type" : "boolean",
+            "default" : false
           },
           {
             "in": "body",
