@@ -8,7 +8,10 @@ Using the API requires a special license from Logz.io, and an API token which ca
 
 The number of queries executed is controlled and limited by Logz.io.
 
+Your query will only run on data you sent today and yesterday.
+
 The number of results are limited to 10,000.
+
 
 ## Search Command
 
