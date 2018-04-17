@@ -28,6 +28,30 @@ Currently does not support partial updates, so it should be used with the same p
 **Get Alert By ID** <br />
 GET http://api.logz.io/v1/alerts/:id
 
+**Get Filtered Triggered Alerts** <br />
+Expects TriggeredAlertsRequest as filter body, and returns paged filtered list of triggered alerts. <br/>
+You can find the expected structure of request in the examples section.
+* **URL**
+
+  http://api.logz.io/v1/alerts/triggered-alerts
+
+* **HTTP Method:**
+
+  `POST`
+
+* **Request:**
+---
+| Parameter|Type|Description|
+|---|---|---|
+| from| integer| | 
+| size| integer| Size of page to return|
+| search| string| Part of the alert name to filter by name(ignore case)|
+| severity| array of enum| Filter by triggered severities(HIGH/MEDIUM/LOW) of alerts
+| sortBy| enum| DATE/SEVERITY|
+| sortOrder| enum| ASC/DESC|
+---
+<br/>
+
 **Get All Alerts** <br />
 GET http://api.logz.io/v1/alerts
 
@@ -106,6 +130,39 @@ Sample response:
     		"threshold": 0.0
     	}
     ]
+}
+```
+### Get Filtered Paged List of Triggered Alerts
+```
+$ curl -XPOST 'https://api.logz.io/v1/alerts/triggered-alerts'  
+  --header "X-API-TOKEN : your-api-access-token" 
+  --header "Content-Type: application/json"
+  -d '{
+      	"from": 0,
+      	"size": 15,
+      	"search": "test",
+      	"severity": ["HIGH", "LOW"],
+      	"sortBy": "DATE",
+      	"sortOrder": "ASC"
+      }'
+```
+Sample response:
+```
+{
+	"pageSize": 2,
+	"from": 0,
+	"total": 2,
+	"results": [{
+		"alertId": 2,
+		"name": "Title AND OXtvb",
+		"eventDate": 1523970562.691000000,
+		"severity": "LOW"
+	}, {
+		"alertId": 1,
+		"name": "Title AND FOrRr",
+		"eventDate": 1523970558.657000000,
+		"severity": "HIGH"
+	}]
 }
 ```
 
