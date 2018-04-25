@@ -8,7 +8,9 @@
 		"/alerts": {
 			"get": {
 				"summary": "Get all alerts",
-				"produces": ["application/json"],
+				"produces": [
+					"application/json"
+				],
 				"responses": {
 					"200": {
 						"description": "successful operation",
@@ -23,15 +25,19 @@
 			},
 			"post": {
 				"summary": "Create an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"in": "body",
-					"name": "body",
-					"required": true,
-					"schema": {
-						"$ref": "#/definitions/AlertRequest"
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AlertRequest"
+						}
 					}
-				}],
+				],
 				"responses": {
 					"200": {
 						"description": "successful operation",
@@ -42,10 +48,38 @@
 				}
 			}
 		},
+		"/alerts/triggered-alerts": {
+			"post": {
+				"summary": "Get filtered triggered alerts",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/TriggeredAlertsRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"$ref": "#/definitions/PageResponseTriggeredAlert"
+						}
+					}
+				}
+			}
+		},
 		"/alerts/notification-endpoints": {
 			"get": {
 				"summary": "Get all of the account notification endpoints",
-				"produces": ["application/json"],
+				"produces": [
+					"application/json"
+				],
 				"responses": {
 					"200": {
 						"description": "successful operation",
@@ -62,14 +96,18 @@
 		"/alerts/{alertId}": {
 			"get": {
 				"summary": "Get an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "alertId",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "successful operation",
@@ -81,21 +119,26 @@
 			},
 			"put": {
 				"summary": "Update an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "alertId",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}, {
-					"in": "body",
-					"name": "body",
-					"required": true,
-					"schema": {
-						"$ref": "#/definitions/AlertRequest"
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AlertRequest"
+						}
 					}
-				}],
+				],
 				"responses": {
 					"200": {
 						"description": "successful operation",
@@ -107,205 +150,339 @@
 			},
 			"delete": {
 				"summary": "Delete an alert",
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "alertId",
-					"in": "path",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				}],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
 				"responses": {
 					"default": {
 						"description": "successful operation"
 					}
 				}
 			}
-		},
-		"definitions": {
-			"AlertResponse": {
-				"type": "object",
-				"properties": {
-					"alertId": {
+		}
+	},
+	"definitions": {
+		"AlertResponse": {
+			"type": "object",
+			"properties": {
+				"alertId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"lastUpdated": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"lastUpdatedBy": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"query_string": {
+					"type": "string"
+				},
+				"filter": {
+					"type": "string"
+				},
+				"operation": {
+					"type": "string",
+					"enum": [
+						"LESS_THAN",
+						"GREATER_THAN",
+						"LESS_THAN_OR_EQUALS",
+						"GREATER_THAN_OR_EQUALS",
+						"EQUALS",
+						"NOT_EQUALS"
+					]
+				},
+				"searchTimeFrameMinutes": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"notificationEmails": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"isEnabled": {
+					"type": "boolean"
+				},
+				"suppressNotificationsMinutes": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"valueAggregationType": {
+					"type": "string",
+					"enum": [
+						"SUM",
+						"MIN",
+						"MAX",
+						"AVG",
+						"COUNT",
+						"NONE"
+					]
+				},
+				"valueAggregationField": {
+					"type": "string"
+				},
+				"groupByAggregationFields": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"alertNotificationEndpoints": {
+					"type": "array",
+					"items": {
 						"type": "integer",
 						"format": "int32"
-					},
-					"lastUpdated": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"lastUpdatedBy": {
-						"type": "string"
-					},
-					"title": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"query_string": {
-						"type": "string"
-					},
-					"filter": {
-						"type": "string"
-					},
-					"operation": {
-						"type": "string",
-						"enum": ["LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUALS", "GREATER_THAN_OR_EQUALS", "EQUALS", "NOT_EQUALS"]
-					},
-					"searchTimeFrameMinutes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"notificationEmails": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"isEnabled": {
-						"type": "boolean"
-					},
-					"suppressNotificationsMinutes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"valueAggregationType": {
-						"type": "string",
-						"enum": ["SUM", "MIN", "MAX", "AVG", "COUNT", "NONE"]
-					},
-					"valueAggregationField": {
-						"type": "string"
-					},
-					"groupByAggregationFields": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"alertNotificationEndpoints": {
-						"type": "array",
-						"items": {
-							"type": "integer",
-							"format": "int32"
-						}
-					},
-					"severityThresholdTiers": {
-						"type": "array",
-						"items": {
-							"severity": {
-								"type": "string",
-								"enum": [ "LOW", "MEDIUM", "HIGH"]
-							},
-							"threshold": {
-								"type": "number",
-								"format": "double"
-							}
-						}
+					}
+				},
+				"severityThresholdTiers" : {
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/SeverityThresholdTier"
 					}
 				}
-			},
-			"AlertRequest": {
-				"type": "object",
-				"required": ["notificationEmails", "query_string", "severity", "title"],
-				"properties": {
-					"title": {
+			}
+		},
+		"AlertRequest": {
+			"type": "object",
+			"required": [
+				"notificationEmails",
+				"query_string",
+				"severity",
+				"title"
+			],
+			"properties": {
+				"title": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"query_string": {
+					"type": "string"
+				},
+				"filter": {
+					"type": "string"
+				},
+				"operation": {
+					"type": "string",
+					"enum": [
+						"LESS_THAN",
+						"GREATER_THAN",
+						"LESS_THAN_OR_EQUALS",
+						"GREATER_THAN_OR_EQUALS",
+						"EQUALS",
+						"NOT_EQUALS"
+					]
+				},
+				"searchTimeFrameMinutes": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"notificationEmails": {
+					"type": "array",
+					"items": {
 						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"query_string": {
-						"type": "string"
-					},
-					"filter": {
-						"type": "string"
-					},
-					"operation": {
-						"type": "string",
-						"enum": ["LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUALS", "GREATER_THAN_OR_EQUALS", "EQUALS", "NOT_EQUALS"]
-					},
-					"searchTimeFrameMinutes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"notificationEmails": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"isEnabled": {
-						"type": "boolean",
-                        "default": true
-					},
-					"suppressNotificationsMinutes": {
-						"type": "integer",
-						"format": "int32",
-						"minimum": 5.0
-					},
-					"valueAggregationType": {
-						"type": "string",
-						"enum": ["SUM", "MIN", "MAX", "AVG", "COUNT", "NONE"]
-					},
-					"valueAggregationField": {
-						"type": "string"
-					},
-					"groupByAggregationFields": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"maxItems": 3,
-						"minItems": 0
-					},
-					"alertNotificationEndpoints": {
-						"type": "array",
-						"items": {
-							"type": "integer",
-							"format": "int32"
-						}
-					},
-					"severityThresholdTiers": {
-						"type": "array",
-						"items": {
-							"severity": {
-								"type": "string",
-								"enum": [ "LOW", "MEDIUM", "HIGH"]
-							},
-							"threshold": {
-								"type": "number",
-								"format": "double"
-							}
-
-						}
-			},
-			"NotificationEndpointResponse": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"type": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"title": {
-						"type": "string"
-					},
-					"createdDate": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"modifiedDate": {
-						"type": "string",
-						"format": "date-time"
 					}
+				},
+				"isEnabled": {
+					"type": "boolean",
+					"default": true
+				},
+				"suppressNotificationsMinutes": {
+					"type": "integer",
+					"format": "int32",
+					"minimum": 5.0
+				},
+				"valueAggregationType": {
+					"type": "string",
+					"enum": [
+						"SUM",
+						"MIN",
+						"MAX",
+						"AVG",
+						"COUNT",
+						"NONE"
+					]
+				},
+				"valueAggregationField": {
+					"type": "string"
+				},
+				"groupByAggregationFields": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 3,
+					"minItems": 0
+				},
+				"alertNotificationEndpoints": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"severityThresholdTiers" : {
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/SeverityThresholdTier"
+					}
+				}
+			}
+		},
+		"NotificationEndpointResponse": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"type": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"createdDate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"modifiedDate": {
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"SeverityThresholdTier" : {
+			"type" : "object",
+			"properties" : {
+				"severity" : {
+					"type" : "string",
+					"enum" : [ "LOW", "MEDIUM", "HIGH" ]
+				},
+				"threshold" : {
+					"type" : "number",
+					"format" : "double"
+				}
+			}
+		},
+		"TriggeredAlertsRequest": {
+			"type": "object",
+			"properties": {
+				"from": {
+					"type": "integer",
+					"format": "int32",
+					"minimum": 0
+				},
+				"search": {
+					"type": "string"
+				},
+				"severity": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"enum": [
+							"LOW",
+							"MEDIUM",
+							"HIGH"
+						]
+					}
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32",
+					"minimum": 1
+				},
+				"sortBy": {
+					"type": "string",
+					"enum": [
+						"DATE",
+						"SEVERITY"
+					]
+				},
+				"sortOrder": {
+					"type": "string",
+					"enum": [
+						"ASC",
+						"DESC"
+					]
+				}
+			}
+		},
+		"PageResponseTriggeredAlert": {
+			"type": "object",
+			"properties": {
+				"from": {
+					"type": "integer",
+					"format": "int32",
+					"minimum": 0,
+					"maximum": 2147483647
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"minimum": 0,
+					"maximum": 500
+				},
+				"results": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TriggeredAlert"
+					}
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64",
+					"minimum": 0,
+					"maximum": 500
+				}
+			}
+		},
+		"TriggeredAlert": {
+			"type": "object",
+			"properties": {
+				"alertId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"eventDate": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"name": {
+					"type": "string"
+				},
+				"severity": {
+					"type": "string",
+					"enum": [
+						"LOW",
+						"MEDIUM",
+						"HIGH"
+					]
 				}
 			}
 		}
 	}
+
 }
