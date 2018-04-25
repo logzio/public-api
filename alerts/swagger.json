@@ -50,7 +50,7 @@
 		},
 		"/alerts/triggered-alerts": {
 			"post": {
-				"operationId": "filterTriggeredAlert",
+				"summary": "Get filtered triggered alerts",
 				"produces": [
 					"application/json"
 				],
