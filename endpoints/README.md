@@ -276,12 +276,6 @@ The number of queries executed is controlled and limited by Logz.io.
             ],
             "parameters": [
               {
-                "name": "x-forwarded-for",
-                "in": "header",
-                "required": false,
-                "type": "string"
-              },
-              {
                 "name": "id",
                 "in": "path",
                 "required": true,
@@ -364,12 +358,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name" : "test",
             "in" : "query",
@@ -488,12 +476,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
@@ -619,12 +601,6 @@ The number of queries executed is controlled and limited by Logz.io.
         ],
         "parameters": [
           {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name" : "test",
             "in" : "query",
             "required" : false,
@@ -742,12 +718,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
@@ -875,12 +845,6 @@ The number of queries executed is controlled and limited by Logz.io.
         ],
         "parameters": [
           {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name" : "test",
             "in" : "query",
             "required" : false,
@@ -1003,12 +967,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
@@ -1138,12 +1096,6 @@ The number of queries executed is controlled and limited by Logz.io.
         ],
         "parameters": [
           {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name" : "test",
             "in" : "query",
             "required" : false,
@@ -1261,12 +1213,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
@@ -1395,12 +1341,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name" : "test",
             "in" : "query",
@@ -1544,12 +1484,6 @@ The number of queries executed is controlled and limited by Logz.io.
             "format": "int32"
           },
           {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name" : "test",
             "in" : "query",
             "required" : false,
@@ -1687,12 +1621,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name" : "test",
             "in" : "query",
@@ -1833,12 +1761,6 @@ The number of queries executed is controlled and limited by Logz.io.
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "x-forwarded-for",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
