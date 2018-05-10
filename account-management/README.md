@@ -96,11 +96,6 @@ The number of queries executed is controlled and limited by Logz.io.
                 "schema" : {
                   "$ref" : "#/definitions/TimeBasedAccountUpsertRequest"
                 }
-              }, {
-                "name" : "x-forwarded-for",
-                "in" : "header",
-                "required" : false,
-                "type" : "string"
               } ],
               "responses" : {
                 "200" : {
@@ -393,11 +388,6 @@ The number of queries executed is controlled and limited by Logz.io.
               "schema" : {
                 "$ref" : "#/definitions/TimeBasedAccountUpsertRequest"
               }
-            }, {
-              "name" : "x-forwarded-for",
-              "in" : "header",
-              "required" : false,
-              "type" : "string"
             } ],
             "responses" : {
               "default" : {
@@ -506,11 +496,6 @@ The number of queries executed is controlled and limited by Logz.io.
               "required" : true,
               "type" : "integer",
               "format" : "int32"
-            }, {
-              "name" : "x-forwarded-for",
-              "in" : "header",
-              "required" : false,
-              "type" : "string"
             } ],
             "responses" : {
               "default" : {

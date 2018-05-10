@@ -35,11 +35,6 @@
           "schema" : {
             "$ref" : "#/definitions/TimeBasedAccountUpsertRequest"
           }
-        }, {
-          "name" : "x-forwarded-for",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -125,11 +120,6 @@
           "schema" : {
             "$ref" : "#/definitions/TimeBasedAccountUpsertRequest"
           }
-        }, {
-          "name" : "x-forwarded-for",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         } ],
         "responses" : {
           "default" : {
@@ -146,11 +136,6 @@
           "required" : true,
           "type" : "integer",
           "format" : "int32"
-        }, {
-          "name" : "x-forwarded-for",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         } ],
         "responses" : {
           "default" : {
