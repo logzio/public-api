@@ -12,8 +12,6 @@ In addition, using the Cloudtrail API requires using a an API token with a dedic
 ## Limitations
 The number of simultaneous api calls is controlled and limited by Logz.io.
 
-The number of total shared tokens in account is limited by by Logz.io.
-
 ### Request Header:
 - X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/account/tokens
 - "Content-Type" - "application/json" (required)
