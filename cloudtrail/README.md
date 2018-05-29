@@ -4,11 +4,17 @@
 The CloudTrail API allows creating, updating, reading and deleting.
 During a create or update operation the CloudTrail credentials are validated.
 
+## License & Permissions
+Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
+
+In addition, using the Cloudtrail API requires using a an API token with a dedicated permission. To receive such a permission, please reach out to Logz.io support.
+
 ## Limitations
-Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens 
+The number of simultaneous api calls is controlled and limited by Logz.io.
 
-The number of queries executed is controlled and limited by Logz.io.
-
+### Request Header:
+- X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/account/tokens
+- "Content-Type" - "application/json" (required)
 
 **Get Account CloudTrails**
 ----
