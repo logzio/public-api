@@ -28,6 +28,9 @@ Currently does not support partial updates, so it should be used with the same p
 **Get Alert By ID** <br />
 GET http://api.logz.io/v1/alerts/:id
 
+**Delete Alert By ID** <br />
+DELETE http://api.logz.io/v1/alerts/:id
+
 **Get Filtered Triggered Alerts** <br />
 Expects TriggeredAlertsRequest as filter body, and returns paged filtered list of triggered alerts. <br/>
 You can find the expected structure of request in the examples section.
