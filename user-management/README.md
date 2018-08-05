@@ -4,11 +4,11 @@
 The User Management API allows creating, updating, reading and deleting of users  
 
 ## License
-Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
+Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/api-tokens
 In addition, using the User Management API requires special license from logz.io.
 
 ## Limitations
-Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens 
+Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/api-tokens 
 
 The number of queries executed is controlled and limited by Logz.io.
 

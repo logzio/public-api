@@ -4,7 +4,7 @@
 The Search API allows Logz.io users to run queries on the data in their account via REST (i.e. HTTP). The query language used is Elasticsearch Search API DSL, with certain limitations. We highly recommend you read the restrictions listed below (In the Request Body section) before beginning to use the API
 
 ## License 
-Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens 
+Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/api-tokens 
 
 The number of queries executed is controlled and limited by Logz.io.
 
@@ -18,11 +18,11 @@ URL: https://api.logz.io/v1/search (US Accounts)
 * Make sure to use https and not http, otherwise you will get a '403 Forbidden' response..
 
 ### HTTP Headers
-* "X-USER-TOKEN" -  The value should be the API token you generated (as explained in the License section above)
+* "X-API-TOKEN" -  The value should be the API token you generated (as explained in the License section above)
 * "Content-Type" - "application/json"  (required)
 
 ### Request Body 
-Elasticsearch Search API Body as documented  in [Elaticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html), with the following restrictions:
+Elasticsearch Search API Body as documented  in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html), with the following restrictions:
 * We support the following top-level elements in the Elasticsearch Search API:  `query`, `from`, `size`, `sort`, `_source`, `post_filter`, `aggs`, `aggregations`
 * When using the `query_string` element, you are not allowed to set its field named `allow_leading_wildcard` to true
 * When using the `wildcard` element, you are not allowed to have its value start with `*` or `?`
@@ -88,7 +88,7 @@ This query returns the count of documents per each value of the field `type`, in
 
 Run the following command:
 ```bash
-curl -XPOST 'https://api.logz.io/v1/search'  --header "X-USER-TOKEN: your-api-access-token" --header "Content-Type: application/json" --data-binary @query.json
+curl -XPOST 'https://api.logz.io/v1/search'  --header "X-API-TOKEN: your-api-access-token" --header "Content-Type: application/json" --data-binary @query.json
 ```
 
 Make sure to replace `your-api-access-token` with the token you created as instructed in License section

@@ -4,11 +4,11 @@
 The Snapshots API allows creating and sending snapshots to endpoints and email recipients 
 
 ## License
-Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens
+Using the Logz.io API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/api-tokens
 In addition, using the Snapshotter API requires special license from logz.io.
 
 ## Limitations
-Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/shared-tokens 
+Using the API requires a special license from Logz.io, and an API token which can be generated here: https://app.logz.io/#/dashboard/settings/api-tokens 
 
 The number of queries executed is controlled and limited by Logz.io.
 
