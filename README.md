@@ -1,4 +1,3 @@
 # Logz.io Public API Documentation
 
-### Master branch holds the current api version.
-For older versions, please select the respective branch.
+Our API docs have moved to [https://docs.logz.io/api/](https://docs.logz.io/api/)
