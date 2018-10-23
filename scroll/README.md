@@ -25,7 +25,7 @@ URL: https://api.logz.io/v1/scroll (US Accounts)
 
 ### Request Body 
 Elasticsearch Scroll API Body as documented  in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html), with the following restrictions:
-* We support the following top-level elements in the Elasticsearch Search API:  `query`, `size`, `sort`, `post_filter`, `scroll`, `scroll_id`.
+* We support the following top-level elements in the Elasticsearch Search API:  `query`, `size`, `from`,`_source`, `sort`, `post_filter`, `scroll`, `scroll_id`.
 * When using the `query_string` element, you are not allowed to set its field named `allow_leading_wildcard` to true
 * When using the `wildcard` element, you are not allowed to have its value start with `*` or `?`
 * When using the `scroll_id` element, you are not allowed to use `query` element.
