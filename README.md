@@ -1,3 +1,3 @@
-# Logz.io Public API Documentation
+# Our API docs have moved!
 
-Our API docs have moved to [https://docs.logz.io/api/](https://docs.logz.io/api/)
+You can find the latest API docs at [https://docs.logz.io/api](https://docs.logz.io/api).
