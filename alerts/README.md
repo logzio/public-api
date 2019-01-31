@@ -48,8 +48,8 @@ You can find the expected structure of request in the examples section.
 |---|---|---|
 | from| integer| | 
 | size| integer| Size of page to return|
-| search| string| Part of the alert name to filter by name(ignore case)|
-| severity| array of enum| Filter by triggered severities(HIGH/MEDIUM/LOW) of alerts
+| search| string| Part of the alert name to filter by name (ignore case)|
+| severity| array of enum| Filter by triggered severities (SEVERE/HIGH/MEDIUM/LOW/INFO) of alerts
 | sortBy| enum| DATE/SEVERITY|
 | sortOrder| enum| ASC/DESC|
 ---
