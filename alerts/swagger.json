@@ -379,7 +379,7 @@
 			"properties" : {
 				"severity" : {
 					"type" : "string",
-					"enum" : [ "LOW", "MEDIUM", "HIGH" ]
+					"enum" : [ "INFO", "LOW", "MEDIUM", "HIGH", "SEVERE" ]
 				},
 				"threshold" : {
 					"type" : "number",
@@ -403,9 +403,11 @@
 					"items": {
 						"type": "string",
 						"enum": [
+							"INFO",
 							"LOW",
 							"MEDIUM",
-							"HIGH"
+							"HIGH",
+							"SEVERE"
 						]
 					}
 				},
@@ -476,9 +478,11 @@
 				"severity": {
 					"type": "string",
 					"enum": [
+						"INFO",
 						"LOW",
 						"MEDIUM",
-						"HIGH"
+						"HIGH",
+						"SEVERE"
 					]
 				}
 			}
