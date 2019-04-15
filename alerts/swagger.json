@@ -225,6 +225,12 @@
 					"type": "integer",
 					"format": "int32"
 				},
+			        "tags" : {
+					"type" : "array",
+					"items" : {
+						"type" : "string"
+					}
+				},
 				"valueAggregationType": {
 					"type": "string",
 					"enum": [
@@ -310,6 +316,14 @@
 					"type": "integer",
 					"format": "int32",
 					"minimum": 5.0
+				},
+				"tags" : {
+					"type" : "array",
+					"items" : {	
+						"type" : "string"
+					},          
+					"maxItems" : 10,
+					"minItems" : 0
 				},
 				"valueAggregationType": {
 					"type": "string",
