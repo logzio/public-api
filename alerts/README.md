@@ -52,6 +52,7 @@ You can find the expected structure of request in the examples section.
 | severity| array of enum| Filter by triggered severities (SEVERE/HIGH/MEDIUM/LOW/INFO) of alerts
 | sortBy| enum| DATE/SEVERITY|
 | sortOrder| enum| ASC/DESC|
+| tags| array of string| List of tags the alert is related to|
 ---
 <br/>
 
