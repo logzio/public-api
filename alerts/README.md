@@ -94,9 +94,7 @@ $ curl -XPOST 'https://api.logz.io/v1/alerts'
         "valueAggregationType": "NONE",
         "valueAggregationField": null,
         "groupByAggregationFields": [],
-        "alertNotificationEndpoints": [
-      	    0
-        ]
+        "alertNotificationEndpoints": []
       }'
 ```
 
@@ -120,9 +118,7 @@ Sample response:
     "valueAggregationType": "NONE",
     "valueAggregationField": null,
     "groupByAggregationFields": [],
-    "alertNotificationEndpoints": [
-        0
-    ],
+    "alertNotificationEndpoints": [],
     "severityThresholdTiers": [{
     	    "severity": "HIGH",
     	    "threshold": 2.0
