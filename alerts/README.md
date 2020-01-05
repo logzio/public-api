@@ -6,7 +6,7 @@ During a create or update operation the alert structure is validated.
 The API also allows fetching an account notification endpoints.
 
 ## Limitations
-Using the API requires an API token which can be generated here - https://app.logz.io/#/dashboard/settings/api-tokens 
+Using the API requires an API token which can be generated here - https://app.logz.io/#/dashboard/settings/api-tokens
 
 The number of simultaneous api calls is controlled and limited by Logz.io.
 
@@ -46,10 +46,10 @@ You can find the expected structure of request in the examples section.
 ---
 | Parameter|Type|Description|
 |---|---|---|
-| from| integer| | 
+| from| integer| |
 | size| integer| Size of page to return|
 | search| string| Part of the alert name to filter by name (ignore case)|
-| severity| array of enum| Filter by triggered severities (SEVERE/HIGH/MEDIUM/LOW/INFO) of alerts
+| severities| array of enum| Filter by triggered severities (SEVERE/HIGH/MEDIUM/LOW/INFO) of alerts
 | sortBy| enum| DATE/SEVERITY|
 | sortOrder| enum| ASC/DESC|
 | tags| array of string| List of tags the alert is related to|
@@ -64,7 +64,7 @@ GET http://api.logz.io/v1/alerts
 Update calls should be done with the same parameters, as partial updates are not currently supported.
 ```
 $ curl -XPOST 'https://api.logz.io/v1/alerts'  
-  --header "X-API-TOKEN : your-api-access-token" 
+  --header "X-API-TOKEN : your-api-access-token"
   --header "Content-Type: application/json"
   -d '{
         "title": "Error level logs",
@@ -139,13 +139,13 @@ Sample response:
 ### Get Filtered Paged List of Triggered Alerts
 ```
 $ curl -XPOST 'https://api.logz.io/v1/alerts/triggered-alerts'  
-  --header "X-API-TOKEN : your-api-access-token" 
+  --header "X-API-TOKEN : your-api-access-token"
   --header "Content-Type: application/json"
   -d '{
       	"from": 0,
       	"size": 15,
       	"search": "test",
-      	"severity": ["HIGH", "LOW"],
+      	"severities": ["HIGH", "LOW"],
       	"sortBy": "DATE",
       	"sortOrder": "ASC"
       }'
@@ -171,7 +171,7 @@ Sample response:
 ```
 
 ### Request Header:
-- X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/account/tokens 
+- X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/account/tokens
 - "Content-Type" - "application/json" (required)
 
 ### query_string format
