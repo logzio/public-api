@@ -171,7 +171,7 @@ Sample response:
 ```
 
 ### Request Header:
-- X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/account/tokens
+- X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/settings/api-tokens
 - "Content-Type" - "application/json" (required)
 
 ### query_string format
