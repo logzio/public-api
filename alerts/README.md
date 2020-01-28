@@ -13,6 +13,8 @@ The number of simultaneous api calls is controlled and limited by Logz.io.
 The number of total active alerts in account is limited by the account plan.
 
 ## Endpoints
+Replace the URLs below 'api.logz.io' part with your region's API host. For more information, see [Account Region](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
+
 **Create Alert** <br />
 POST https://api.logz.io/v1/alerts<br />
 <br />
