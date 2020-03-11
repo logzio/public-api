@@ -66,7 +66,7 @@ GET http://api.logz.io/v1/alerts
 Update calls should be done with the same parameters, as partial updates are not currently supported.
 ```
 $ curl -XPOST 'https://api.logz.io/v1/alerts'  
-  --header "X-API-TOKEN : your-api-access-token"
+  --header "X-API-TOKEN: your-api-access-token"
   --header "Content-Type: application/json"
   -d '{
         "title": "Error level logs",
@@ -141,7 +141,7 @@ Sample response:
 ### Get Filtered Paged List of Triggered Alerts
 ```
 $ curl -XPOST 'https://api.logz.io/v1/alerts/triggered-alerts'  
-  --header "X-API-TOKEN : your-api-access-token"
+  --header "X-API-TOKEN: your-api-access-token"
   --header "Content-Type: application/json"
   -d '{
       	"from": 0,
@@ -173,7 +173,7 @@ Sample response:
 ```
 
 ### Request Header:
-- X-API-TOKEN : contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/settings/api-tokens
+- X-API-TOKEN: contains a token in order to access the API, which can be generated here - https://app.logz.io/#/dashboard/settings/api-tokens
 - "Content-Type" - "application/json" (required)
 
 ### query_string format
