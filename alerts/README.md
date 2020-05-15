@@ -38,7 +38,7 @@ Expects TriggeredAlertsRequest as filter body, and returns paged filtered list o
 You can find the expected structure of request in the examples section.
 * **URL**
 
-  http://api.logz.io/v1/alerts/triggered-alerts
+  https://api.logz.io/v1/alerts/triggered-alerts
 
 * **HTTP Method:**
 
@@ -59,7 +59,7 @@ You can find the expected structure of request in the examples section.
 <br/>
 
 **Get All Alerts** <br />
-GET http://api.logz.io/v1/alerts
+GET https://api.logz.io/v1/alerts
 
 ## Examples:
 ### Create Alert
