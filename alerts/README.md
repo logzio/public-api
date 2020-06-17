@@ -120,9 +120,7 @@ Sample response:
     "valueAggregationType": "NONE",
     "valueAggregationField": null,
     "groupByAggregationFields": [],
-    "alertNotificationEndpoints": [
-        0
-    ],
+    "alertNotificationEndpoints": [],
     "severityThresholdTiers": [{
     	    "severity": "HIGH",
     	    "threshold": 2.0
